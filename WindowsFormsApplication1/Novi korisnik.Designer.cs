@@ -100,21 +100,21 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(327, 282);
+            this.textBox2.Location = new System.Drawing.Point(327, 170);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(135, 20);
             this.textBox2.TabIndex = 6;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(329, 221);
+            this.textBox3.Location = new System.Drawing.Point(329, 233);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(133, 20);
             this.textBox3.TabIndex = 7;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(327, 159);
+            this.textBox4.Location = new System.Drawing.Point(327, 292);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(135, 20);
             this.textBox4.TabIndex = 8;
