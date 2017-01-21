@@ -28,3 +28,6 @@ C:\Users\Robert\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\o
 C:\Users\Robert\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\objProjekt\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 C:\Users\Robert\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\objProjekt\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
 C:\Users\Robert\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\objProjekt\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Robert\Documents\GitHub\objProjekt\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Robert\Documents\GitHub\objProjekt\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Robert\Documents\GitHub\objProjekt\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
