@@ -58,6 +58,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bazaOBJDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ClanTimaPredlozakcs.cs" />
+    <Compile Include="ClanTimaTablica.cs" />
+    <Compile Include="KorisnickiRacunPredlozak.cs" />
+    <Compile Include="KorisnickiRacunTablica.cs" />
     <Compile Include="Login ekran.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +101,7 @@
       <DependentUpon>Kreiraj tim.cs</DependentUpon>
     </Compile>
     <Compile Include="TimPredlozak.cs" />
+    <Compile Include="timTablica.cs" />
     <EmbeddedResource Include="Admin Početni ekran.resx">
       <DependentUpon>Admin Početni ekran.cs</DependentUpon>
     </EmbeddedResource>
