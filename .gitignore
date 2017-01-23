@@ -14,7 +14,7 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-/App.Config
+*App.config*
 
 # Windows shortcuts
 *.lnk
