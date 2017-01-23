@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bazaOBJDataSet = new WindowsFormsApplication1.bazaOBJDataSet();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bazaOBJDataSet)).BeginInit();
             this.SuspendLayout();
@@ -96,11 +97,22 @@
             this.bazaOBJDataSet.DataSetName = "bazaOBJDataSet";
             this.bazaOBJDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(901, 453);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Logout";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Početni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1013, 488);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private bazaOBJDataSet bazaOBJDataSet;
+        private System.Windows.Forms.Button button4;
     }
 }

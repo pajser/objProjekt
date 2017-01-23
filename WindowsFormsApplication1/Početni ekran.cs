@@ -12,8 +12,10 @@ namespace WindowsFormsApplication1
 {
     public partial class Početni : Form
     {
-        public Početni()
+        private KorisnickiRacunPredlozak Korisnik;
+        public Početni(KorisnickiRacunPredlozak idKor)
         {
+            Korisnik = idKor;
             InitializeComponent();
         }
 
@@ -29,7 +31,7 @@ namespace WindowsFormsApplication1
         }
         private void kreirajtim_Click(object sender, EventArgs e)
         {
-            Tim tim = new Tim();
+            Tim tim = new Tim(this.Korisnik);
             tim.Show();
         }
 
@@ -46,6 +48,15 @@ namespace WindowsFormsApplication1
 
         private void Početni_Load(object sender, EventArgs e)
         {
+            label1.Text = "Dobrodošao, " + Korisnik.imePrezime + "!";
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 login=new Form1();
+            login.Show();
 
         }
     }

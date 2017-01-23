@@ -101,7 +101,7 @@
       <DependentUpon>Kreiraj tim.cs</DependentUpon>
     </Compile>
     <Compile Include="TimPredlozak.cs" />
-    <Compile Include="timTablica.cs" />
+    <Compile Include="TimTablica.cs" />
     <EmbeddedResource Include="Admin Početni ekran.resx">
       <DependentUpon>Admin Početni ekran.cs</DependentUpon>
     </EmbeddedResource>

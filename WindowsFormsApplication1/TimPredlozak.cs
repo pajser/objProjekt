@@ -16,13 +16,13 @@ namespace WindowsFormsApplication1
         public int idStatusa;
         public int bodovi;
 
-        public TimPredlozak(string imeT,string naslovA,string opisA)
+        public TimPredlozak(string imeT,string naslovA,string opisA, int status, int bodov)
         {
             this.imeTima = imeT;
             this.naslovAplikacije = naslovA;
             this.opisAplikacije = opisA;
-            this.idStatusa = 1;
-            this.bodovi = 0;
+            this.idStatusa = status;
+            this.bodovi = bodov;
         }
     }
 }

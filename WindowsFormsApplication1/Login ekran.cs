@@ -24,18 +24,29 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.textBox1.Text == "admin")
+            KorisnickiRacunPredlozak Kor = KorisnickiRacunTablica.UlogirajKorisnika(this.textBox1.Text, this.textBox2.Text);
+
+            if (Kor.idKorisnickiRacun == 1)//admin
             {
                 Admin_Početni_ekran adminPočetni = new Admin_Početni_ekran();
                 adminPočetni.Show();
-            }
+                this.Hide();
 
+            }
             else
             {
-                Početni početni = new Početni();
-                početni.Show();
-                this.Hide();
+                if (Kor == null)
+                {
+                    //pokazi gresku da korisnik ne postoji
+                }
+                else
+                {
+                    Početni početni = new Početni(Kor);
+                    početni.Show();
+                    this.Hide();
+                }
             }
+            
         }
     }
 }

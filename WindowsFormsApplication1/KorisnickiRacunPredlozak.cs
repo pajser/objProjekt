@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class KorisnickiRacunPredlozak
+    public class KorisnickiRacunPredlozak
     {
         public int idKorisnickiRacun;
         public string korisnickoIme;
