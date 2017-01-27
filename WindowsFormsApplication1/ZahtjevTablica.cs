@@ -70,5 +70,32 @@ namespace WindowsFormsApplication1
 
 
 
+        public static bool izbrisiZahtjev(int idKR, int idT, bool inic, string por)
+        {
+            //ZahtjevPredlozak novi = new ZahtjevPredlozak(idKR, idT, inic, por);
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            //command.CommandText = "DELETE FROM Zahtjev WHERE idKorisnickiRacun = " + novi.idKorisnickiRacun + " AND idTima = " + novi.idTima;
+            command.CommandText = "DELETE FROM Zahtjev WHERE idKorisnickiRacun = " + idKR + " AND idTima = " + idT;
+            try
+            {
+                conn.Open();
+                int test = command.ExecuteNonQuery();
+                if (test > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return false;
+        }//od izbrisi zahtjev
+
+
+
+
+
     }//od klase
 }//od namespacea

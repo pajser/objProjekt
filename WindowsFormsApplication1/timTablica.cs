@@ -125,14 +125,33 @@ namespace WindowsFormsApplication1
 
 
 
-
+        public static bool izbrisiTim(int idTima)
+        {
+            //tim = new TimPredlozak(imeTima, naslovAplikacije, opisAplikacije, status, bodovi);
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "DELETE FROM Tim WHERE idTima = " + idTima;
+            try
+            {
+                conn.Open();
+                int test = command.ExecuteNonQuery();
+                if (test > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return false;
+        }//od dodaj
 
 
 
 
 
         public void promjeni() { }
-        public void makni() { }
         
     }//klasa
 
