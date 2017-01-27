@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class ClanTimaPredlozakcs
+    class ClanTimaPredlozak
     {
         public int idKorisnickiRacun;
         public int idTima;
         public bool vodja;
-        public ClanTimaPredlozakcs(int idKR,int idT,bool glavni)
+        public ClanTimaPredlozak(int idKR,int idT,bool glavni)
         {
             this.idKorisnickiRacun = idKR;
             this.idTima = idT;

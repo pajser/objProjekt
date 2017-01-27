@@ -58,7 +58,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bazaOBJDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ClanTimaPredlozakcs.cs" />
+    <Compile Include="ClanTimaPredlozak.cs" />
     <Compile Include="ClanTimaTablica.cs" />
     <Compile Include="KorisnickiRacunPredlozak.cs" />
     <Compile Include="KorisnickiRacunTablica.cs" />

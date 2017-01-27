@@ -12,11 +12,12 @@ namespace WindowsFormsApplication1
         public int idTima;
         public bool iniciraKorisnik;
         public string poruka;
-        public ZahtjevPredlozak(int idKR, int idT, bool ini, string por)
+
+        public ZahtjevPredlozak(int idKR, int idT, bool inic, string por)
         {
             this.idKorisnickiRacun = idKR;
             this.idTima = idT;
-            this.iniciraKorisnik = ini;
+            this.iniciraKorisnik = inic;
             this.poruka = por;
         }
 
