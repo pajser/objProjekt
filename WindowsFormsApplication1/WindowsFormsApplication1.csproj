@@ -102,6 +102,8 @@
     </Compile>
     <Compile Include="TimPredlozak.cs" />
     <Compile Include="TimTablica.cs" />
+    <Compile Include="ZahtjevPredlozak.cs" />
+    <Compile Include="ZahtjevTablica.cs" />
     <EmbeddedResource Include="Admin Početni ekran.resx">
       <DependentUpon>Admin Početni ekran.cs</DependentUpon>
     </EmbeddedResource>
