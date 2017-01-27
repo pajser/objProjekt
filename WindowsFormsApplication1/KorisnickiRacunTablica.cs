@@ -9,7 +9,7 @@ namespace WindowsFormsApplication1
 {
     class KorisnickiRacunTablica
     {
-        public List<KorisnickiRacunPredlozak> korisnici;
+        public static List<KorisnickiRacunPredlozak> korisnici;
         public static KorisnickiRacunPredlozak korisnik;
         private static string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["WindowsFormsApplication1.Properties.Settings.bazaOBJConnectionString"].ConnectionString;
 
@@ -69,7 +69,63 @@ namespace WindowsFormsApplication1
         }//ulogiraj korisnika
 
 
+        public static KorisnickiRacunPredlozak dohvatiKorisnikaPoIdu(int idKorisnickiRacun)
+        {
+            //tim = new TimPredlozak();
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT * FROM KorisnickiRacun WHERE idKorisnickiRacun = " + idKorisnickiRacun;
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    idKorisnickiRacun = reader.GetInt32(0);
+                    string korisnickoIme = reader.GetString(1);
+                    string lozinka = reader.GetString(2);
+                    string imePrezime = reader.GetString(3);
+                    string jmbag = reader.GetString(4);
 
+                    korisnik = new KorisnickiRacunPredlozak(korisnickoIme, lozinka, imePrezime, jmbag);
+                }
+            }
+            catch (Exception e)
+            {
+                return korisnik;//mogu runtime error
+            }
+            return korisnik;
+        }//od dohvatiKorisnikaPoIdu
+
+
+
+        public static List<KorisnickiRacunPredlozak> dohvatiSveKorisnike()
+        {
+            korisnici = new List<KorisnickiRacunPredlozak>();
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT * FROM KorisnickiRacun";
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int idKorisnickiRacun = reader.GetInt32(0);
+                    string korisnickoIme = reader.GetString(1);
+                    string lozinka = reader.GetString(2);
+                    string imePrezime = reader.GetString(3);
+                    string jmbag = reader.GetString(4);
+                    korisnik = new KorisnickiRacunPredlozak(korisnickoIme, lozinka, imePrezime, jmbag);
+                    korisnici.Add(korisnik);
+                }
+            }
+            catch (Exception e)
+            {
+                return korisnici;//mogu runtime error
+            }
+            return korisnici;
+        }//od dohvatiSveKorisnike
 
 
 
@@ -85,7 +141,7 @@ namespace WindowsFormsApplication1
         //    
         //}
 
-        
+
 
     }//klasa
 }//namespace

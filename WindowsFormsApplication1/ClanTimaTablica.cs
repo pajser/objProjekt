@@ -28,7 +28,6 @@ namespace WindowsFormsApplication1
                     return true;
                 }
             }
-
             catch (Exception e)
             {
                 return false;
