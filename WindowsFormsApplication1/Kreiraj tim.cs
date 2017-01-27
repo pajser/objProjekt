@@ -27,9 +27,9 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            bool uspjesnost = TimTablica.dodaj(this.textBox1.Text, this.textBox2.Text, this.textBox3.Text,1 ,0);
-            int idTima = TimTablica.dohvatiIdTima(this.textBox1.Text);
-            bool uspjesnost123 = ClanTimaTablica.dodaj(kreator.idKorisnickiRacun, idTima, true);
+            bool uspjesnost = TimTablica.DodajTim(this.textBox1.Text, this.textBox2.Text, this.textBox3.Text,1 ,0);
+            int idTima = TimTablica.DohvatiIdTima(this.textBox1.Text);
+            bool uspjesnost123 = ClanTimaTablica.DodajClanTima(kreator.idKorisnickiRacun, idTima, true);
 
 
             if (uspjesnost123) { this.Close(); }

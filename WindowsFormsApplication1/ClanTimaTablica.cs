@@ -14,7 +14,10 @@ namespace WindowsFormsApplication1
 
         private static string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["WindowsFormsApplication1.Properties.Settings.bazaOBJConnectionString"].ConnectionString;
 
-        public static bool dodaj(int idKR, int idT, bool glavni)
+
+
+        //dodaje u ClanTima "vezu" izmedu postojeceg korisnika i tima
+        public static bool DodajClanTima(int idKR, int idT, bool glavni)
         {
             if (glavni) {}//ZA KAJ JE OVO TU BILO?!?!?!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxXXX OVO JE SAMO DA PRIMJETIS KOMENTAR
             ClanTimaPredlozak novi = new ClanTimaPredlozak(idKR, idT, glavni);            
@@ -40,7 +43,7 @@ namespace WindowsFormsApplication1
 
 
         //metoda "dohvatiClanoveTima" dohvaca listu svih -ClanTima- koji su clanovi tima ciji je argument kod poziva. Nakon toga korisni uzastopno dohvacanje iz KorisnickiRacunTablica po listi idejeva koje tu dobis
-        public static List<ClanTimaPredlozak> dohvatiClanoveTima(int idTima)
+        public static List<ClanTimaPredlozak> DohvatiClanoveTima(int idTima)
         {
             clanovi = new List<ClanTimaPredlozak>();
             SqlConnection conn = new SqlConnection(connStr);

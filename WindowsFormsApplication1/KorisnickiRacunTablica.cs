@@ -11,10 +11,13 @@ namespace WindowsFormsApplication1
     {
         public static List<KorisnickiRacunPredlozak> korisnici;
         public static KorisnickiRacunPredlozak korisnik;
+
         private static string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["WindowsFormsApplication1.Properties.Settings.bazaOBJConnectionString"].ConnectionString;
 
+
+
         //dodaje novog korisnika u bazu, prima sve propertyje potrebne za objekt tj za relaciju
-        public static bool dodajKorisnika(string user, string pass, string imePrezime, string jmbag)
+        public static bool DodajKorisnika(string user, string pass, string imePrezime, string jmbag)
         {
             korisnik = new KorisnickiRacunPredlozak(user, pass, imePrezime, jmbag); 
             SqlConnection conn = new SqlConnection(connStr);
@@ -35,6 +38,7 @@ namespace WindowsFormsApplication1
             }
             return false;
         }//dodaj korisnika
+
 
 
         //ovo bi trebala biti zapravo funkcija za "provjeriJelRegistriranKorisnik", i ako je onda pozvati [tek treba napraviti] funkciju za ulogiravanje koja na neki nacin sprema cookie za session id-a korisnika il tak nes, vidjet cemo jel to treba
@@ -69,8 +73,10 @@ namespace WindowsFormsApplication1
             return korisnik;
         }//ulogiraj korisnika
 
+
+
         //dohvaca sve detalje korisnika po id-u koji se predaje kao argument
-        public static KorisnickiRacunPredlozak dohvatiKorisnikaPoIdu(int idKorisnickiRacun)
+        public static KorisnickiRacunPredlozak DohvatiKorisnikaPoIdu(int idKorisnickiRacun)
         {
             //tim = new TimPredlozak();
             SqlConnection conn = new SqlConnection(connStr);
@@ -99,9 +105,10 @@ namespace WindowsFormsApplication1
         }//od dohvatiKorisnikaPoIdu
 
 
+
         //dohvaca listu svih korisnika (koristit ce se kad vodja tima primjerice salje zahtjev za pridruzenje u tim nekom liku, trebat ce vidjet izlistane sve korisnike)
         //trebalo bi mozda jos vidjet kak da dohvaca samo korisnike koji nemaju tim
-        public static List<KorisnickiRacunPredlozak> dohvatiSveKorisnike()
+        public static List<KorisnickiRacunPredlozak> DohvatiSveKorisnike()
         {
             korisnici = new List<KorisnickiRacunPredlozak>();
             SqlConnection conn = new SqlConnection(connStr);
@@ -132,16 +139,6 @@ namespace WindowsFormsApplication1
 
 
 
-
-
-        //NEMAM POJMA KAJ JE OVO DOLE AL ME STRAH IZBRISAT LOL XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-        //public void dodaj(string korisnickoI, string loz, string imeP, string JMBAG)
-        //{
-        //    KorisnickiRacunPredlozak novi = new KorisnickiRacunPredlozak(korisnickoI, loz, imeP, JMBAG);
-        //    //this.korisnici.Add(novi);
-        //    
-        //}
 
 
 
