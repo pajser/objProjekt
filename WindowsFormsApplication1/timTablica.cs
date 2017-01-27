@@ -13,6 +13,7 @@ namespace WindowsFormsApplication1
         public static TimPredlozak tim;
         private static string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["WindowsFormsApplication1.Properties.Settings.bazaOBJConnectionString"].ConnectionString;
 
+        //metoda "dodaj" prima sve property-je za kreiranje klase TimPredlozak i ubacuje objekt u bazu
         public static bool dodaj(string imeTima, string naslovAplikacije, string opisAplikacije, int status, int bodovi ) {
 
             tim = new TimPredlozak(imeTima, naslovAplikacije, opisAplikacije, status, bodovi);
@@ -35,7 +36,7 @@ namespace WindowsFormsApplication1
             return false;
         }//od dodaj
 
-
+        //metoda "dohvatiIdTima" dohvaca id Tima na nacin da u bazi trazi tim sa imenom koje je predano kao argument
         public static int dohvatiIdTima(string nazivTima)
         {
             int idTima = 0;
@@ -63,7 +64,7 @@ namespace WindowsFormsApplication1
 
 
 
-
+        //metoda "dohvatiTimPoIdu" dohvaca Tim (sa svim propertyima) na nacin da u bazi trazi tim sa id-jem koji je predan kao argument
         public static TimPredlozak dohvatiTimPoIdu(int idTima)
         {
             //tim = new TimPredlozak();
@@ -93,7 +94,7 @@ namespace WindowsFormsApplication1
         }//od dohvatiIdTima
 
 
-
+        //metoda "dohvatiSveTimove" dohvaca listu svih Timova
         public static List<TimPredlozak> dohvatiSveTimove()
         {
             timovi = new List<TimPredlozak>();
@@ -124,7 +125,7 @@ namespace WindowsFormsApplication1
         }//od dohvatiSveTimove
 
 
-
+        //metoda "izbrisiTim" brise Tim iz baze - prije moraju biti svi clanovi tog tima izbrisani iz relacije ClanTima, baza nece inace dozvolit brisanje
         public static bool izbrisiTim(int idTima)
         {
             //tim = new TimPredlozak(imeTima, naslovAplikacije, opisAplikacije, status, bodovi);

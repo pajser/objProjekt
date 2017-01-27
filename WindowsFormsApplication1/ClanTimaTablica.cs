@@ -39,7 +39,7 @@ namespace WindowsFormsApplication1
 
 
 
-
+        //metoda "dohvatiClanoveTima" dohvaca listu svih -ClanTima- koji su clanovi tima ciji je argument kod poziva. Nakon toga korisni uzastopno dohvacanje iz KorisnickiRacunTablica po listi idejeva koje tu dobis
         public static List<ClanTimaPredlozak> dohvatiClanoveTima(int idTima)
         {
             clanovi = new List<ClanTimaPredlozak>();

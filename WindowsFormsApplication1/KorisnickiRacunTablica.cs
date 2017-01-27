@@ -13,6 +13,7 @@ namespace WindowsFormsApplication1
         public static KorisnickiRacunPredlozak korisnik;
         private static string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["WindowsFormsApplication1.Properties.Settings.bazaOBJConnectionString"].ConnectionString;
 
+        //dodaje novog korisnika u bazu, prima sve propertyje potrebne za objekt tj za relaciju
         public static bool dodajKorisnika(string user, string pass, string imePrezime, string jmbag)
         {
             korisnik = new KorisnickiRacunPredlozak(user, pass, imePrezime, jmbag); 
@@ -36,7 +37,7 @@ namespace WindowsFormsApplication1
         }//dodaj korisnika
 
 
-
+        //ovo bi trebala biti zapravo funkcija za "provjeriJelRegistriranKorisnik", i ako je onda pozvati [tek treba napraviti] funkciju za ulogiravanje koja na neki nacin sprema cookie za session id-a korisnika il tak nes, vidjet cemo jel to treba
         public static KorisnickiRacunPredlozak UlogirajKorisnika(string user, string pass)
         {
             korisnik = new KorisnickiRacunPredlozak(user, pass, null, null);
@@ -68,7 +69,7 @@ namespace WindowsFormsApplication1
             return korisnik;
         }//ulogiraj korisnika
 
-
+        //dohvaca sve detalje korisnika po id-u koji se predaje kao argument
         public static KorisnickiRacunPredlozak dohvatiKorisnikaPoIdu(int idKorisnickiRacun)
         {
             //tim = new TimPredlozak();
@@ -98,7 +99,8 @@ namespace WindowsFormsApplication1
         }//od dohvatiKorisnikaPoIdu
 
 
-
+        //dohvaca listu svih korisnika (koristit ce se kad vodja tima primjerice salje zahtjev za pridruzenje u tim nekom liku, trebat ce vidjet izlistane sve korisnike)
+        //trebalo bi mozda jos vidjet kak da dohvaca samo korisnike koji nemaju tim
         public static List<KorisnickiRacunPredlozak> dohvatiSveKorisnike()
         {
             korisnici = new List<KorisnickiRacunPredlozak>();
@@ -132,7 +134,7 @@ namespace WindowsFormsApplication1
 
 
 
-
+        //NEMAM POJMA KAJ JE OVO DOLE AL ME STRAH IZBRISAT LOL XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
         //public void dodaj(string korisnickoI, string loz, string imeP, string JMBAG)
         //{

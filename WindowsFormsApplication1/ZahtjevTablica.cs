@@ -14,8 +14,8 @@ namespace WindowsFormsApplication1
 
         private static string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["WindowsFormsApplication1.Properties.Settings.bazaOBJConnectionString"].ConnectionString;
 
-        //metode za rad nad zahtjevima
 
+        //metoda "dodaj" prima sve property-je za kreiranje klase ZahtjevPredlozak i ubacuje objekt u bazu
         public static bool dodaj(int idKR, int idT, bool inic, string por)
         {
             ZahtjevPredlozak novi = new ZahtjevPredlozak(idKR, idT, inic, por);
@@ -38,7 +38,7 @@ namespace WindowsFormsApplication1
             return false;
         }//od dodaj zahtjev
 
-
+        //metoda "dohvatiZahtjeveZaTim" dohvaca listu svih Zahtjeva koji su upuceni jednom timu (id targetiranog tima je predan kao argument)
         public static List<ZahtjevPredlozak> dohvatiZahtjeveZaTim(int idTima)
         {
             zahtjevi = new List<ZahtjevPredlozak>();
@@ -69,7 +69,7 @@ namespace WindowsFormsApplication1
 
 
 
-
+        //metoda "izbrisiZahtjev" brise zahtjev iz baze - to se izvrsava nakon sto je korisnik dodan u tim tj. konkretno u tablicu ClanTima (ne smije biti i zahtjev i clanTima postojec istovremeno)
         public static bool izbrisiZahtjev(int idKR, int idT, bool inic, string por)
         {
             //ZahtjevPredlozak novi = new ZahtjevPredlozak(idKR, idT, inic, por);
