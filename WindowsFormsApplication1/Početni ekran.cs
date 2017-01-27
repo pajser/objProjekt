@@ -21,7 +21,9 @@ namespace WindowsFormsApplication1
 
         private void mojtim_Click(object sender, EventArgs e)
         {
-            Moj_tim moj_tim = new Moj_tim();
+            int idtima = ClanTimaTablica.DohvatiIdTima(this.Korisnik.idKorisnickiRacun);
+
+            Moj_tim moj_tim = new Moj_tim(idtima);
             moj_tim.Show();
         }
         private void pregledtim_Click(object sender, EventArgs e)

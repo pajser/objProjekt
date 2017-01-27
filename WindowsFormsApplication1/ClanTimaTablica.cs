@@ -19,8 +19,7 @@ namespace WindowsFormsApplication1
         //dodaje u ClanTima "vezu" izmedu postojeceg korisnika i tima
         public static bool DodajClanTima(int idKR, int idT, bool glavni)
         {
-            if (glavni) {}//ZA KAJ JE OVO TU BILO?!?!?!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxXXX OVO JE SAMO DA PRIMJETIS KOMENTAR
-            ClanTimaPredlozak novi = new ClanTimaPredlozak(idKR, idT, glavni);            
+            ClanTimaPredlozak novi = new ClanTimaPredlozak(idKR, idT, glavni);         
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand command = conn.CreateCommand();
             command.CommandText = "INSERT INTO ClanTIma values (" + novi.idKorisnickiRacun + ", " + novi.idTima + ", '" + novi.vodja + "')";
@@ -70,6 +69,28 @@ namespace WindowsFormsApplication1
         }//od dohvatiClanoveTima
 
 
+        //metoda "dohvatiIdTima" dohvaca id Tima u relaciji korisnik-tim s ulaznim argumentom ID korisnika
+        public static int DohvatiIdTima(int idKorisnickiRacun)
+        {
+            int idTima = 0;
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT idTima FROM ClanTima WHERE idKorisnickiRacun = '" + idKorisnickiRacun.ToString() + "'";
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    idTima = reader.GetInt32(0);
+                }
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return idTima;
+        }//od dohvatiIdTima
 
 
 

@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            bool uspjesnost = KorisnickiRacunTablica.DodajKorisnika(this.textBox1.Text,this.textBox2.Text, this.textBox3.Text, this.textBox4.Text);
+            bool uspjesnost = KorisnickiRacunTablica.DodajKorisnika(this.textBox2.Text,this.textBox3.Text, this.textBox1.Text, this.textBox4.Text);
                 this.Close();
         }
 

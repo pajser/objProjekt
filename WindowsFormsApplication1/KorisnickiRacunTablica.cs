@@ -137,8 +137,35 @@ namespace WindowsFormsApplication1
         }//od dohvatiSveKorisnike
 
 
-
-
+        //pokušaj funkcije koja dohvaća korisniek bez tima
+        public static List<KorisnickiRacunPredlozak> DohvatiSveSlobodneKorisnike()
+        {
+            korisnici = new List<KorisnickiRacunPredlozak>();
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT KorisnickiRacun.idKorisnickiRacun FROM KorisnickiRacun LEFT JOIN ClanTIma ON KorisnickiRacun.idKorisnickiRacun=ClanTIma.idKorisnickiRacun WHERE ClanTIma.idKorisnickiRacun IS NULL";
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int idKorisnickiRacun = reader.GetInt32(0);
+                    string korisnickoIme = reader.GetString(1);
+                    string lozinka = reader.GetString(2);
+                    string imePrezime = reader.GetString(3);
+                    string jmbag = reader.GetString(4);
+                    korisnik = new KorisnickiRacunPredlozak(korisnickoIme, lozinka, imePrezime, jmbag);
+                    korisnici.Add(korisnik);
+                }
+            }
+            catch (Exception e)
+            {
+                return korisnici;//mogu runtime error
+            }
+         
+            return korisnici;
+        }//od dohvatiSveKorisnike
 
 
 
