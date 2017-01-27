@@ -9,7 +9,7 @@ namespace WindowsFormsApplication1
 {
     class TimTablica
     {
-        public List<TimPredlozak> timovi;
+        public static List<TimPredlozak> timovi;
         public static TimPredlozak tim;
         private static string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["WindowsFormsApplication1.Properties.Settings.bazaOBJConnectionString"].ConnectionString;
 
@@ -28,13 +28,12 @@ namespace WindowsFormsApplication1
                     return true;
                 }
             }
-
             catch (Exception e)
             {
                 return false;
             }
             return false;
-        }
+        }//od dodaj
 
 
         public static int dohvatiIdTima(string nazivTima)
@@ -52,13 +51,12 @@ namespace WindowsFormsApplication1
                     idTima = reader.GetInt32(0);
                 }
             }
-
             catch (Exception e)
             {
                 return -1;
             }
             return idTima;
-        }//ulogiraj korisnika
+        }//od dohvatiIdTima
 
 
 
@@ -66,6 +64,64 @@ namespace WindowsFormsApplication1
 
 
 
+        public static TimPredlozak dohvatiTimPoIdu(int idTima)
+        {
+            //tim = new TimPredlozak();
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT * FROM Tim WHERE idTima = " + idTima;
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    idTima = reader.GetInt32(0);
+                    string imeTima = reader.GetString(1);
+                    string naslovAplikacije = reader.GetString(2);
+                    string opisAplikacije = reader.GetString(3);
+                    int idStatusa = reader.GetInt32(4);
+                    int bodovi = reader.GetInt32(5);
+                    tim = new TimPredlozak(imeTima, naslovAplikacije, opisAplikacije, idStatusa, bodovi);
+                }
+            }
+            catch (Exception e)
+            {
+                return tim;//mogu runtime error
+            }
+            return tim;
+        }//od dohvatiIdTima
+
+
+
+        public static List<TimPredlozak> dohvatiSveTimove()
+        {
+            timovi = new List<TimPredlozak>();
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT * FROM Tim";
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int idTima = reader.GetInt32(0);
+                    string imeTima = reader.GetString(1);
+                    string naslovAplikacije = reader.GetString(2);
+                    string opisAplikacije = reader.GetString(3);
+                    int idStatusa = reader.GetInt32(4);
+                    int bodovi = reader.GetInt32(5);
+                    tim = new TimPredlozak(imeTima, naslovAplikacije, opisAplikacije, idStatusa, bodovi);
+                    timovi.Add(tim);
+                }
+            }
+            catch (Exception e)
+            {
+                return timovi;//mogu runtime error
+            }
+            return timovi;
+        }//od dohvatiSveTimove
 
 
 
@@ -77,7 +133,7 @@ namespace WindowsFormsApplication1
 
         public void promjeni() { }
         public void makni() { }
-        public void dohvati() { }
+        
     }//klasa
 
 }//namespace

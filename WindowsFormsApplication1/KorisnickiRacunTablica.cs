@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
         public List<KorisnickiRacunPredlozak> korisnici;
         public static KorisnickiRacunPredlozak korisnik;
         private static string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["WindowsFormsApplication1.Properties.Settings.bazaOBJConnectionString"].ConnectionString;
+
         public static bool dodajKorisnika(string user, string pass, string imePrezime, string jmbag)
         {
             korisnik = new KorisnickiRacunPredlozak(user, pass, imePrezime, jmbag); 
@@ -27,7 +28,6 @@ namespace WindowsFormsApplication1
                     return true;
                 }
             }
-
             catch (Exception e)
             {
                 return false;
@@ -61,13 +61,21 @@ namespace WindowsFormsApplication1
                     korisnik.jmbag = reader.GetString(4);
                 }
             }
-
             catch (Exception e)
             {
                 return null;
             }
             return korisnik;
         }//ulogiraj korisnika
+
+
+
+
+
+
+
+
+
 
 
         //public void dodaj(string korisnickoI, string loz, string imeP, string JMBAG)
@@ -77,8 +85,7 @@ namespace WindowsFormsApplication1
         //    
         //}
 
-
-
+        
 
     }//klasa
 }//namespace
