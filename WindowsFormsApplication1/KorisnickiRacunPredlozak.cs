@@ -21,5 +21,16 @@ namespace WindowsFormsApplication1
             this.imePrezime = imeP;
             this.jmbag = JMBAG;
         }
+
+        public KorisnickiRacunPredlozak(int id, string imeP)
+        {
+            this.idKorisnickiRacun = id;
+            this.korisnickoIme = null;
+            this.lozinka = null;
+            this.imePrezime = imeP;
+            this.jmbag = null;
+        }
+
+
     }
 }
