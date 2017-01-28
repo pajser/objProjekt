@@ -40,7 +40,7 @@ namespace WindowsFormsApplication1
                 if (this.radioButton1.Checked)
                     zapamcen = this.textBox1.Text;
                 else this.zapamcen = "nista";
-                Admin_Početni_ekran adminPočetni = new Admin_Početni_ekran(zapamcen);
+                Admin_Početni_ekran adminPočetni = new Admin_Početni_ekran(Kor, zapamcen);
                 adminPočetni.Show();
                 this.Hide();
 

@@ -14,11 +14,7 @@ namespace WindowsFormsApplication1
     {
         private KorisnickiRacunPredlozak Korisnik;
         private string pamti = "nista";
-        public Admin_Početni_ekran()
-        {
-            Korisnik = idKor;
-            InitializeComponent();
-        }
+        
         public Admin_Početni_ekran(KorisnickiRacunPredlozak idKor, string zapamcen)
         {
             this.pamti = zapamcen;

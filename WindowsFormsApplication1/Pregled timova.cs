@@ -13,6 +13,7 @@ namespace WindowsFormsApplication1
     public partial class Pregled_timova : Form
     {
         List<TimPredlozak> timovi;
+        private List<KorisnickiRacunPredlozak> ljudiPrikazanogTima;
         private int idKorisnika;
         public Pregled_timova()
         {
@@ -36,10 +37,10 @@ namespace WindowsFormsApplication1
             listBox1.ValueMember = "IdTima";
 
 
-            //this.timskiKorisnici = KorisnickiRacunTablica.DohvatiSveClanoveTima(pripadniTim.idTima);
-            //listBox2.DataSource = timskiKorisnici;
-            //listBox2.DisplayMember = "imeP";
-            //listBox2.ValueMember = "idKR";
+
+            
+
+            
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
@@ -58,6 +59,11 @@ namespace WindowsFormsApplication1
             this.label3.Text = "Ime tima: " + gledaniTim.imeTima;
             this.label6.Text = "Ime aplikacije: " + gledaniTim.naslovAplikacije;
             this.textBox1.Text = gledaniTim.OpisAplikacije;
+
+            //tu
+            this.ljudiPrikazanogTima = KorisnickiRacunTablica.DohvatiSveClanoveTima(gledaniTim.idTima);
+            listBox2.DataSource = ljudiPrikazanogTima;
+            listBox2.DisplayMember = "imeP";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -67,6 +73,10 @@ namespace WindowsFormsApplication1
             if(ZahtjevTablica.DodajZahtjev(this.idKorisnika, idOdabranog, true, tekstPoruke))
                 System.Windows.MessageBox.Show("Zahtjev uspješno poslan!");
         }
-        
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
