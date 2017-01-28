@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="bazaOBJDataSet1" targetNamespace="http://tempuri.org/bazaOBJDataSet1.xsd" xmlns:mstns="http://tempuri.org/bazaOBJDataSet1.xsd" xmlns="http://tempuri.org/bazaOBJDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="bazaOBJConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="bazaOBJConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsFormsApplication1.Properties.Settings.GlobalReference.Default.bazaOBJConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TimTableAdapter" GeneratorDataComponentClassName="TimTableAdapter" Name="Tim" UserDataComponentName="TimTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="bazaOBJConnectionString (Settings)" DbObjectName="bazaOBJ.dbo.Tim" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT imeTima, naslovAplikacije FROM dbo.Tim</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="imeTima" DataSetColumn="imeTima" />
+              <Mapping SourceColumn="naslovAplikacije" DataSetColumn="naslovAplikacije" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="bazaOBJDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="bazaOBJDataSet1" msprop:Generator_UserDSName="bazaOBJDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Tim" msprop:Generator_TableClassName="TimDataTable" msprop:Generator_TableVarName="tableTim" msprop:Generator_TablePropName="Tim" msprop:Generator_RowDeletingName="TimRowDeleting" msprop:Generator_RowChangingName="TimRowChanging" msprop:Generator_RowEvHandlerName="TimRowChangeEventHandler" msprop:Generator_RowDeletedName="TimRowDeleted" msprop:Generator_UserTableName="Tim" msprop:Generator_RowChangedName="TimRowChanged" msprop:Generator_RowEvArgName="TimRowChangeEvent" msprop:Generator_RowClassName="TimRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="imeTima" msprop:Generator_ColumnVarNameInTable="columnimeTima" msprop:Generator_ColumnPropNameInRow="imeTima" msprop:Generator_ColumnPropNameInTable="imeTimaColumn" msprop:Generator_UserColumnName="imeTima">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="naslovAplikacije" msprop:Generator_ColumnVarNameInTable="columnnaslovAplikacije" msprop:Generator_ColumnPropNameInRow="naslovAplikacije" msprop:Generator_ColumnPropNameInTable="naslovAplikacijeColumn" msprop:Generator_UserColumnName="naslovAplikacije">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

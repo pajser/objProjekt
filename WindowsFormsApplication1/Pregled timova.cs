@@ -24,8 +24,14 @@ namespace WindowsFormsApplication1
 
         private void Pregled_timova_Load(object sender, EventArgs e)
         {
-            Pregled_timova timovi = new Pregled_timova();
-            timovi.Show();
+            // TODO: This line of code loads data into the 'bazaOBJDataSet1.Tim' table. You can move, or remove it, as needed.
+            this.timTableAdapter.Fill(this.bazaOBJDataSet1.Tim);
+       
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

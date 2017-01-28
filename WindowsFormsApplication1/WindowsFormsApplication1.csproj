@@ -58,6 +58,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bazaOBJDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="bazaOBJDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bazaOBJDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ClanTimaPredlozak.cs" />
     <Compile Include="ClanTimaTablica.cs" />
     <Compile Include="KorisnickiRacunPredlozak.cs" />
@@ -144,6 +149,17 @@
     </None>
     <None Include="bazaOBJDataSet.xss">
       <DependentUpon>bazaOBJDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="bazaOBJDataSet1.xsc">
+      <DependentUpon>bazaOBJDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="bazaOBJDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bazaOBJDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bazaOBJDataSet1.xss">
+      <DependentUpon>bazaOBJDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
