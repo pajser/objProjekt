@@ -54,7 +54,7 @@ namespace WindowsFormsApplication1
             listBox3.ValueMember = "idKR";
 
 
-            //DODAO XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            
             this.zeljniKorisnici = ZahtjevTablica.DohvatiZahtjeveZaTim(pripadniTim.idTima);
             listBox2.DataSource = zeljniKorisnici;
             listBox2.DisplayMember = "imeP";
@@ -124,6 +124,59 @@ namespace WindowsFormsApplication1
         {
             KorisnikZahtjevPredlozak odabraniKorZahtjev = this.listBox2.SelectedItem as KorisnikZahtjevPredlozak;
             this.textBox2.Text = odabraniKorZahtjev.Por;
+        }
+
+        //pozovi u tim
+        private void button6_Click(object sender, EventArgs e)
+        {
+            KorisnikZahtjevPredlozak odabraniKorZahtjev = this.listBox2.SelectedItem as KorisnikZahtjevPredlozak;
+            if (ClanTimaTablica.DodajClanTima(odabraniKorZahtjev.idKR, pripadniTim.idTima, false))
+            {
+                System.Windows.MessageBox.Show(odabraniKorZahtjev.imeP + " je dodan u tim!");
+            }
+            ZahtjevTablica.IzbrisiZahtjev(odabraniKorZahtjev.idKR, -1);
+            this.zeljniKorisnici = ZahtjevTablica.DohvatiZahtjeveZaTim(pripadniTim.idTima);
+            listBox2.DataSource = zeljniKorisnici;
+            listBox2.DisplayMember = "imeP";
+            listBox2.ValueMember = "idKR";
+
+            this.timskiKorisnici = KorisnickiRacunTablica.DohvatiSveClanoveTima(pripadniTim.idTima);
+            listBox1.DataSource = timskiKorisnici;
+            listBox1.DisplayMember = "imeP";
+            listBox1.ValueMember = "idKR";
+
+            this.soloKorisnici = KorisnickiRacunTablica.DohvatiSveSlobodneKorisnike();
+            listBox3.DataSource = soloKorisnici;
+            listBox3.DisplayMember = "imeP";
+            listBox3.ValueMember = "idKR";
+        }
+
+
+
+
+
+
+        //odbij zahtjev
+        private void button7_Click(object sender, EventArgs e)
+        {
+            KorisnikZahtjevPredlozak odabraniKorZahtjev = this.listBox2.SelectedItem as KorisnikZahtjevPredlozak;
+            if (ZahtjevTablica.IzbrisiZahtjev(odabraniKorZahtjev.idKR, pripadniTim.idTima))
+            {
+                this.zeljniKorisnici = ZahtjevTablica.DohvatiZahtjeveZaTim(pripadniTim.idTima);
+                listBox2.DataSource = zeljniKorisnici;
+                listBox2.DisplayMember = "imeP";
+                listBox2.ValueMember = "idKR";
+
+                if (zeljniKorisnici.Count() < 1)
+                {
+                    this.textBox2.Text = "";
+                }
+                else
+                {
+                    odabraniKorZahtjev = this.listBox2.SelectedItem as KorisnikZahtjevPredlozak;
+                    this.textBox2.Text = odabraniKorZahtjev.Por;
+                }
+            }
         }
     }
 }

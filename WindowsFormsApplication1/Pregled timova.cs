@@ -34,6 +34,12 @@ namespace WindowsFormsApplication1
             listBox1.DataSource = timovi;
             listBox1.DisplayMember = "ImeTima";
             listBox1.ValueMember = "IdTima";
+
+
+            //this.timskiKorisnici = KorisnickiRacunTablica.DohvatiSveClanoveTima(pripadniTim.idTima);
+            //listBox2.DataSource = timskiKorisnici;
+            //listBox2.DisplayMember = "imeP";
+            //listBox2.ValueMember = "idKR";
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)

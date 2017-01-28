@@ -12,14 +12,17 @@ namespace WindowsFormsApplication1
 {
     public partial class Admin_Početni_ekran : Form
     {
-        private string pamti="nista";
+        private KorisnickiRacunPredlozak Korisnik;
+        private string pamti = "nista";
         public Admin_Početni_ekran()
         {
+            Korisnik = idKor;
             InitializeComponent();
         }
-        public Admin_Početni_ekran(string zapamcen)
+        public Admin_Početni_ekran(KorisnickiRacunPredlozak idKor, string zapamcen)
         {
             this.pamti = zapamcen;
+            Korisnik = idKor;
             InitializeComponent();
         }
 
@@ -36,7 +39,8 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Pregled_timova timovi = new Pregled_timova(Korisnik.idKorisnickiRacun);
+            timovi.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)

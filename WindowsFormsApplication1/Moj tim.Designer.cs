@@ -115,6 +115,7 @@
             this.button6.TabIndex = 11;
             this.button6.Text = "Pozovi u tim";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -124,6 +125,7 @@
             this.button7.TabIndex = 12;
             this.button7.Text = "Odbij zahtjev";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label3
             // 
