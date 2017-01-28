@@ -71,7 +71,11 @@
             this.naslovAplikacijeDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.timBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(198, 118);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(563, 257);
             this.dataGridView1.TabIndex = 8;
             // 
