@@ -116,7 +116,7 @@ namespace WindowsFormsApplication1
                     string opisAplikacije = reader.GetString(3);
                     int idStatusa = reader.GetInt32(4);
                     int bodovi = reader.GetInt32(5);
-                    tim = new TimPredlozak(imeTima, naslovAplikacije, opisAplikacije, idStatusa, bodovi);
+                    tim = new TimPredlozak(idTima, imeTima, naslovAplikacije, opisAplikacije, idStatusa, bodovi);
                     timovi.Add(tim);
                 }
             }

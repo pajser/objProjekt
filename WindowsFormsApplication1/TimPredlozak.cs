@@ -39,8 +39,39 @@ namespace WindowsFormsApplication1
                 this.imeTima = value;
             }
         }
-
-
+        public string NaslovAplikacije
+        {
+            get
+            {
+                return this.naslovAplikacije;
+            }
+            set
+            {
+                this.naslovAplikacije = value;
+            }
+        }
+        public string OpisAplikacije
+        {
+            get
+            {
+                return this.opisAplikacije;
+            }
+            set
+            {
+                this.opisAplikacije = value;
+            }
+        }
+        public int IdStatusa
+        {
+            get
+            {
+                return this.idStatusa;
+            }
+            set
+            {
+                this.idStatusa = value;
+            }
+        }
 
 
         public TimPredlozak(string imeT,string naslovA,string opisA, int status, int bodov)

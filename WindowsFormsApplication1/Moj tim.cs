@@ -35,8 +35,8 @@ namespace WindowsFormsApplication1
 
         private void Moj_tim_Load(object sender, EventArgs e)
         {
-            this.label3.Text = pripadniTim.imeTima;
-            this.label6.Text = pripadniTim.naslovAplikacije;
+            this.label3.Text = "Ime Tima: "+ pripadniTim.imeTima;
+            this.label6.Text = "Naslov aplikacije: " + pripadniTim.naslovAplikacije;
             this.textBox1.Text = pripadniTim.opisAplikacije;
 
 
@@ -102,5 +102,15 @@ namespace WindowsFormsApplication1
             listBox3.DisplayMember = "";
             listBox3.DisplayMember = "imeP";
         }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+        }
+        
     }
 }

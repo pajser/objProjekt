@@ -24,13 +24,13 @@ namespace WindowsFormsApplication1
         private void mojtim_Click(object sender, EventArgs e)
         {
             int idtima = ClanTimaTablica.DohvatiIdTima(this.Korisnik.idKorisnickiRacun);
-
+            
             Moj_tim moj_tim = new Moj_tim(idtima);
             moj_tim.Show();
         }
         private void pregledtim_Click(object sender, EventArgs e)
         {
-            Pregled_timova timovi = new Pregled_timova();
+            Pregled_timova timovi = new Pregled_timova(Korisnik.idKorisnickiRacun);
             timovi.Show();
         }
         private void kreirajtim_Click(object sender, EventArgs e)
@@ -39,21 +39,13 @@ namespace WindowsFormsApplication1
             tim.Show();
         }
 
-
-
-
-
-
-
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Početni_Load(object sender, EventArgs e)
         {
             label1.Text = "Dobrodošao, " + Korisnik.imePrezime + "!";
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -69,7 +61,6 @@ namespace WindowsFormsApplication1
                 Form1 login = new Form1();
                 login.Show();
             }
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -77,5 +68,7 @@ namespace WindowsFormsApplication1
             Nep_Tim tim = new Nep_Tim(this.Korisnik);
             tim.Show();
         }
+      
     }
-}
+    
+    }
