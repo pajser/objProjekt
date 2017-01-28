@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
             ZahtjevPredlozak novi = new ZahtjevPredlozak(idKR, idT, inic, por);
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand command = conn.CreateCommand();
-            command.CommandText = "INSERT INTO Zahtjev values (" + novi.idKorisnickiRacun + ", " + novi.idTima + ", '" + novi.iniciraKorisnik + ", '" + novi.poruka + "')";
+            command.CommandText = "INSERT INTO Zahtjev values (" + novi.idKorisnickiRacun + ", " + novi.idTima + ", '" + novi.iniciraKorisnik + "', '" + novi.poruka + "')";
             try
             {
                 conn.Open();

@@ -14,6 +14,26 @@ namespace WindowsFormsApplication1
         public string imePrezime;
         public string jmbag;
 
+
+        public int idKR {
+            get {
+                return this.idKorisnickiRacun;
+                                }
+            set{
+                 this.idKorisnickiRacun=value;
+            }
+        }
+        public string imeP
+        {
+            get
+            {
+                return this.imePrezime;
+            }
+            set
+            {
+                this.imePrezime = value;
+            }
+        }
         public KorisnickiRacunPredlozak(string korisnickoI,string loz, string imeP, string JMBAG)
         {
             this.korisnickoIme = korisnickoI;
