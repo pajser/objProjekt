@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1
             int idTima = 0;
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT idTima FROM ClanTima WHERE idKorisnickiRacun = '" + idKorisnickiRacun.ToString() + "'";
+            command.CommandText = "SELECT idTima FROM ClanTIma WHERE idKorisnickiRacun = '" + idKorisnickiRacun.ToString() + "'";
             try
             {
                 conn.Open();

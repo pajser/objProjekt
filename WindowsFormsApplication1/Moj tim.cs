@@ -18,9 +18,17 @@ namespace WindowsFormsApplication1
         private TimPredlozak pripadniTim;
         public Moj_tim(int id)
         {
-            pripadniTim = TimTablica.DohvatiTimPoIdu(id);
-            pripadniTim.idTima = id;
-            InitializeComponent();
+            try
+            {
+                pripadniTim = TimTablica.DohvatiTimPoIdu(id);
+                pripadniTim.idTima = id;
+                InitializeComponent();
+            }
+            catch(Exception žnj)
+            {
+                this.Hide();
+                System.Windows.MessageBox.Show("Nisi u timu");
+            }
         }
 
         private void Moj_tim_Load(object sender, EventArgs e)

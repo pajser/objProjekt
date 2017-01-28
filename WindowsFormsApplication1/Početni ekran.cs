@@ -71,5 +71,11 @@ namespace WindowsFormsApplication1
             }
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Nep_Tim tim = new Nep_Tim(this.Korisnik);
+            tim.Show();
+        }
     }
 }

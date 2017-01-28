@@ -73,13 +73,28 @@ namespace WindowsFormsApplication1
 
         
         //metoda "izbrisiZahtjev" brise zahtjev iz baze - to se izvrsava nakon sto je korisnik dodan u tim tj. konkretno u tablicu ClanTima (ne smije biti i zahtjev i clanTima postojec istovremeno)
-        public static bool IzbrisiZahtjev(int idKR, int idT, bool inic, string por)
+        public static bool IzbrisiZahtjev(int idKR, int idT)
         {
             //ZahtjevPredlozak novi = new ZahtjevPredlozak(idKR, idT, inic, por);
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand command = conn.CreateCommand();
-            //command.CommandText = "DELETE FROM Zahtjev WHERE idKorisnickiRacun = " + novi.idKorisnickiRacun + " AND idTima = " + novi.idTima;
-            command.CommandText = "DELETE FROM Zahtjev WHERE idKorisnickiRacun = " + idKR + " AND idTima = " + idT;
+            string tekst = "DELETE FROM Zahtjev WHERE ";
+            if (idKR > 0)
+            {
+                string tekst1 = "idKorisnickiRacun = " + idKR;
+                tekst += tekst1;
+            }
+            if (idKR>0 && idT>0)
+            {
+                string tekst2 = " AND ";
+                tekst += tekst2;
+            }
+            if (idT > 0)
+            {
+                string tekst3 = "idTima = " + idT;
+                tekst += tekst3;
+            }
+            command.CommandText = tekst;
             try
             {
                 conn.Open();

@@ -152,10 +152,37 @@ namespace WindowsFormsApplication1
             return false;
         }//od dodaj
 
+        //zahtjevi upućeni jednom korisniku
+        public static List<TimPredlozak> DohvatiZahtjeveZaKorisnika(int idKor)
+        {
+            timovi = new List<TimPredlozak>();
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT Tim.idTima,imeTima,naslovAplikacije,opisAplikacije FROM Zahtjev LEFT JOIN Tim ON Zahtjev.idTima = Tim.idTima WHERE Zahtjev.iniciraKorisnik = 0 AND Zahtjev.idKorisnickiRacun = " + idKor;
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int idTima = reader.GetInt32(0);
+                    string imeTima = reader.GetString(1);
+                    string naslov = reader.GetString(2);
+                    string opis = reader.GetString(3);
+                    tim = new TimPredlozak(idTima,imeTima,naslov,opis,0,0);
+                    timovi.Add(tim);
+                }
+            }
+            catch (Exception e)
+            {
+                return timovi;//mogu runtime error
+            }
+            return timovi;
+        }
 
-        
 
-        
+
+
     }//klasa
 
 }//namespace
