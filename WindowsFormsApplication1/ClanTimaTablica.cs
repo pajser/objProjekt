@@ -95,6 +95,30 @@ namespace WindowsFormsApplication1
 
 
 
+        //metoda "izbrisiClanaTima" brise clana tima iz baze, osoba postoji jos u sustavo isto kao sto postoji i tim
+        public static bool IzbrisiClanaTima(int idKorisnickiRacun, int idTima)
+        {
+            //tim = new TimPredlozak(imeTima, naslovAplikacije, opisAplikacije, status, bodovi);
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "DELETE FROM ClanTima WHERE idKoriscnickiRacun = " + idKorisnickiRacun + " AND idTima = " + idTima;
+            try
+            {
+                conn.Open();
+                int test = command.ExecuteNonQuery();
+                if (test > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return false;
+        }//od dodaj
+
+
 
 
 
