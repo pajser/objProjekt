@@ -42,13 +42,13 @@ namespace WindowsFormsApplication1
 
 
             this.timskiKorisnici = KorisnickiRacunTablica.DohvatiSveClanoveTima(pripadniTim.idTima);
-            this.listBox1.DataSource = timskiKorisnici;
-            this.listBox1.DisplayMember = "imeP";
-            listBox3.ValueMember = "idKR";
+            listBox1.DataSource = timskiKorisnici;
+            listBox1.DisplayMember = "imeP";
+            listBox1.ValueMember = "idKR";
 
 
             this.soloKorisnici = KorisnickiRacunTablica.DohvatiSveSlobodneKorisnike();
-            this.listBox3.DataSource = soloKorisnici;
+            listBox3.DataSource = soloKorisnici;
             listBox3.DisplayMember = "imeP";
             listBox3.ValueMember = "idKR";
 
@@ -62,30 +62,45 @@ namespace WindowsFormsApplication1
 
         private void button4_Click(object sender, EventArgs e)
         {
+            ClanTimaTablica.IzbrisiClanoveTima(this.pripadniTim.idTima);
+            ZahtjevTablica.IzbrisiZahtjev(-1, this.pripadniTim.idTima);
+            TimTablica.IzbrisiTim(this.pripadniTim.idTima);
+            System.Windows.MessageBox.Show("Članovi tima izbačeni i projekt uspješno izbrisan!");
+            this.Hide();
+
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //int idPozvanog = this.listBox3.SelectedItem;          
-            //String curItem = (listBox3.SelectedValue as ListBoxItem).Content.ToString();
             int idPozvanog = Int32.Parse(listBox3.SelectedValue.ToString());
             if(ZahtjevTablica.DodajZahtjev(idPozvanog, this.pripadniTim.idTima, false, null))
             {
                 System.Windows.MessageBox.Show("Uspješno pozvan u tim!");
-
+                this.soloKorisnici = KorisnickiRacunTablica.DohvatiSveSlobodneKorisnike();
+                listBox3.DataSource = soloKorisnici;
+                listBox3.DisplayMember = "";
+                listBox3.DisplayMember = "imeP";
             }
             this.listBox3.Update();
-          
          }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int idBrisanog = Int32.Parse(listBox3.SelectedValue.ToString());
+           int idBrisanog = Int32.Parse(listBox1.SelectedValue.ToString());
            if(ClanTimaTablica.IzbrisiClanaTima(idBrisanog,this.pripadniTim.idTima))
             {
                 System.Windows.MessageBox.Show("Član izbačen iz tima!");
             }
+            this.timskiKorisnici = KorisnickiRacunTablica.DohvatiSveClanoveTima(pripadniTim.idTima);
+            listBox1.DataSource = timskiKorisnici;
+            this.soloKorisnici = KorisnickiRacunTablica.DohvatiSveSlobodneKorisnike();
+            listBox3.DataSource = soloKorisnici;
+            listBox1.DisplayMember = "";
+            listBox1.DisplayMember = "imeP";
+            listBox3.DisplayMember = "";
+            listBox3.DisplayMember = "imeP";
         }
     }
 }

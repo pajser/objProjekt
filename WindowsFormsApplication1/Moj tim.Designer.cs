@@ -44,6 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.listBox3 = new System.Windows.Forms.ListBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -196,11 +197,22 @@
             this.listBox3.Size = new System.Drawing.Size(235, 342);
             this.listBox3.TabIndex = 14;
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button5.Location = new System.Drawing.Point(216, 101);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(175, 61);
+            this.button5.TabIndex = 21;
+            this.button5.Text = "Odobri tim";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // Moj_tim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 514);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
@@ -243,5 +255,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Button button5;
     }
 }

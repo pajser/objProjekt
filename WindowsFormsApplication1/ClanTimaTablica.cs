@@ -101,7 +101,8 @@ namespace WindowsFormsApplication1
             //tim = new TimPredlozak(imeTima, naslovAplikacije, opisAplikacije, status, bodovi);
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand command = conn.CreateCommand();
-            command.CommandText = "DELETE FROM ClanTima WHERE idKoriscnickiRacun = " + idKorisnickiRacun + " AND idTima = " + idTima;
+          
+            command.CommandText = "DELETE FROM ClanTima WHERE idKorisnickiRacun = " + idKorisnickiRacun + " AND idTima = " + idTima;
             try
             {
                 conn.Open();
@@ -118,7 +119,28 @@ namespace WindowsFormsApplication1
             return false;
         }//od dodaj
 
+        public static bool IzbrisiClanoveTima(int idTima)
+        {
+            //tim = new TimPredlozak(imeTima, naslovAplikacije, opisAplikacije, status, bodovi);
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
 
+            command.CommandText = "DELETE FROM ClanTima WHERE idTima = " + idTima;
+            try
+            {
+                conn.Open();
+                int test = command.ExecuteNonQuery();
+                if (test > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return false;
+        }//od dodaj
 
 
 
