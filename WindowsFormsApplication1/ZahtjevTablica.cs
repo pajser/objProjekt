@@ -11,6 +11,8 @@ namespace WindowsFormsApplication1
     {
         public static ZahtjevPredlozak zahtjev;
         public static List<ZahtjevPredlozak> zahtjevi;
+        public static List<KorisnikZahtjevPredlozak> korZahtjevi;
+        public static KorisnikZahtjevPredlozak korZahtjev;
 
         private static string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["WindowsFormsApplication1.Properties.Settings.bazaOBJConnectionString"].ConnectionString;
 
@@ -43,12 +45,12 @@ namespace WindowsFormsApplication1
 
 
         //metoda "dohvatiZahtjeveZaTim" dohvaca listu svih Zahtjeva koji su upuceni jednom timu (id targetiranog tima je predan kao argument)
-        public static List<ZahtjevPredlozak> DohvatiZahtjeveZaTim(int idTima)
+        public static List<KorisnikZahtjevPredlozak> DohvatiZahtjeveZaTim(int idTima)
         {
-            zahtjevi = new List<ZahtjevPredlozak>();
+            korZahtjevi = new List<KorisnikZahtjevPredlozak>();
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT * FROM Zahtjev WHERE idTima = " + idTima;
+            command.CommandText = "SELECT KorisnickiRacun.idKorisnickiRacun, KorisnickiRacun.imePrezime, Zahtjev.poruka FROM Zahtjev LEFT JOIN KorisnickiRacun ON Zahtjev.idKorisnickiRacun = KorisnickiRacun.idKorisnickiRacun WHERE Zahtjev.idTima = " + idTima;
             try
             {
                 conn.Open();
@@ -56,18 +58,18 @@ namespace WindowsFormsApplication1
                 while (reader.Read())
                 {
                     int idKorisnickiRacun = reader.GetInt32(0);
-                    idTima = reader.GetInt32(1);
-                    bool inic = reader.GetBoolean(2);
-                    string por = reader.GetString(3);
-                    zahtjev = new ZahtjevPredlozak(idKorisnickiRacun, idTima, inic, por);
-                    zahtjevi.Add(zahtjev);
+                    string imePrezime = reader.GetString(1);
+                    string poruka = reader.GetString(2);
+
+                    korZahtjev = new KorisnikZahtjevPredlozak(idKorisnickiRacun, imePrezime, poruka);
+                    korZahtjevi.Add(korZahtjev);
                 }
             }
             catch (Exception e)
             {
-                return zahtjevi;//mogu runtime error
+                return korZahtjevi;//mogu runtime error
             }
-            return zahtjevi;
+            return korZahtjevi;
         }//od dohvatiZahtjeveZaTim
 
 

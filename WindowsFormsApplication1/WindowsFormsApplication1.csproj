@@ -68,6 +68,7 @@
     <Compile Include="ClanTimaTablica.cs" />
     <Compile Include="KorisnickiRacunPredlozak.cs" />
     <Compile Include="KorisnickiRacunTablica.cs" />
+    <Compile Include="KorisnikZahtjevPredlozak.cs" />
     <Compile Include="Login ekran.cs">
       <SubType>Form</SubType>
     </Compile>

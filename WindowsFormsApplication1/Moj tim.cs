@@ -17,7 +17,7 @@ namespace WindowsFormsApplication1
 
         private List<KorisnickiRacunPredlozak> soloKorisnici;
         private List<KorisnickiRacunPredlozak> timskiKorisnici;
-        private List<KorisnickiRacunPredlozak> zeljniKorisnici;
+        private List<KorisnikZahtjevPredlozak> zeljniKorisnici;
         private TimPredlozak pripadniTim;
         public Moj_tim(int id)
         {
@@ -54,10 +54,12 @@ namespace WindowsFormsApplication1
             listBox3.ValueMember = "idKR";
 
 
-         /*   this.zeljniKorisnici = KorisnickiRacunTablica.;
-            listBox1.DataSource = timovi;
-            listBox1.DisplayMember = "ImeTima";
-            listBox1.ValueMember = "IdTima";*/
+            //DODAO XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            this.zeljniKorisnici = ZahtjevTablica.DohvatiZahtjeveZaTim(pripadniTim.idTima);
+            listBox2.DataSource = zeljniKorisnici;
+            listBox2.DisplayMember = "imeP";
+            listBox2.ValueMember = "idKR";
+
 
         }
 
@@ -120,7 +122,8 @@ namespace WindowsFormsApplication1
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            KorisnikZahtjevPredlozak odabraniKorZahtjev = this.listBox2.SelectedItem as KorisnikZahtjevPredlozak;
+            this.textBox2.Text = odabraniKorZahtjev.Por;
         }
     }
 }
