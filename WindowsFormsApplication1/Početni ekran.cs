@@ -24,9 +24,12 @@ namespace WindowsFormsApplication1
         private void mojtim_Click(object sender, EventArgs e)
         {
             int idtima = ClanTimaTablica.DohvatiIdTima(this.Korisnik.idKorisnickiRacun);
-            
-            Moj_tim moj_tim = new Moj_tim(idtima);
-            moj_tim.Show();
+            if (idtima != 0)
+            {
+                Moj_tim moj_tim = new Moj_tim(idtima);
+                moj_tim.Show();
+            }
+            else System.Windows.MessageBox.Show("Nisi u timu");
         }
         private void pregledtim_Click(object sender, EventArgs e)
         {

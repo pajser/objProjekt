@@ -17,6 +17,7 @@ namespace WindowsFormsApplication1
 
         private List<KorisnickiRacunPredlozak> soloKorisnici;
         private List<KorisnickiRacunPredlozak> timskiKorisnici;
+        private List<KorisnickiRacunPredlozak> zeljniKorisnici;
         private TimPredlozak pripadniTim;
         public Moj_tim(int id)
         {
@@ -52,6 +53,11 @@ namespace WindowsFormsApplication1
             listBox3.DisplayMember = "imeP";
             listBox3.ValueMember = "idKR";
 
+
+         /*   this.zeljniKorisnici = KorisnickiRacunTablica.;
+            listBox1.DataSource = timovi;
+            listBox1.DisplayMember = "ImeTima";
+            listBox1.ValueMember = "IdTima";*/
 
         }
 
@@ -111,6 +117,10 @@ namespace WindowsFormsApplication1
         private void label3_Click(object sender, EventArgs e)
         {
         }
-        
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
