@@ -54,9 +54,13 @@ namespace WindowsFormsApplication1
             //int idPozvanog = this.listBox3.SelectedItem;          
             //String curItem = (listBox3.SelectedValue as ListBoxItem).Content.ToString();
             int idPozvanog = Int32.Parse(listBox3.SelectedValue.ToString());
-            ZahtjevTablica.DodajZahtjev(idPozvanog, this.pripadniTim.idTima, false, null);
+            if(ZahtjevTablica.DodajZahtjev(idPozvanog, this.pripadniTim.idTima, false, null))
+            {
+                System.Windows.MessageBox.Show("Uspješno pozvan u tim!");
+
+            }
             this.listBox3.Update();
-            MessageBox.Show(idPozvanog.ToString());
+          
          }
     }
 }
