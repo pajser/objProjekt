@@ -164,6 +164,31 @@ namespace WindowsFormsApplication1
             return korisnici;
         }//od dohvatiSveKorisnike
 
+        public static List<KorisnickiRacunPredlozak> DohvatiSveClanoveTima(int idTima)
+        {
+            korisnici = new List<KorisnickiRacunPredlozak>();
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT KorisnickiRacun.idKorisnickiRacun, KorisnickiRacun.imePrezime FROM KorisnickiRacun LEFT JOIN ClanTIma ON KorisnickiRacun.idKorisnickiRacun=ClanTIma.idKorisnickiRacun WHERE ClanTIma.idTima ="+idTima;
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int idKorisnickiRacun = reader.GetInt32(0);
+                    string imePrezime = reader.GetString(1);
+                    korisnik = new KorisnickiRacunPredlozak(idKorisnickiRacun, imePrezime);
+                    korisnici.Add(korisnik);
+                }
+            }
+            catch (Exception e)
+            {
+                return korisnici;//mogu runtime error
+            }
+
+            return korisnici;
+        }
 
 
     }//klasa

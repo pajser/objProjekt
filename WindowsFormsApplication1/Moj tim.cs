@@ -14,7 +14,9 @@ namespace WindowsFormsApplication1
 {
     public partial class Moj_tim : Form
     {
+
         private List<KorisnickiRacunPredlozak> soloKorisnici;
+        private List<KorisnickiRacunPredlozak> timskiKorisnici;
         private TimPredlozak pripadniTim;
         public Moj_tim(int id)
         {
@@ -36,8 +38,14 @@ namespace WindowsFormsApplication1
             this.label3.Text = pripadniTim.imeTima;
             this.label6.Text = pripadniTim.naslovAplikacije;
             this.textBox1.Text = pripadniTim.opisAplikacije;
-            List<ClanTimaPredlozak> clanoviTima = ClanTimaTablica.DohvatiClanoveTima(pripadniTim.idTima);
-            this.listBox1.Items.Add(clanoviTima);
+
+
+
+            this.timskiKorisnici = KorisnickiRacunTablica.DohvatiSveClanoveTima(pripadniTim.idTima);
+            this.listBox1.DataSource = timskiKorisnici;
+            this.listBox1.DisplayMember = "imeP";
+            listBox3.ValueMember = "idKR";
+
 
             this.soloKorisnici = KorisnickiRacunTablica.DohvatiSveSlobodneKorisnike();
             this.listBox3.DataSource = soloKorisnici;
@@ -70,5 +78,10 @@ namespace WindowsFormsApplication1
             this.listBox3.Update();
           
          }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
