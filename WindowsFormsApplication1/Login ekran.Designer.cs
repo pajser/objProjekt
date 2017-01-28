@@ -56,10 +56,10 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(221, 284);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(92, 17);
+            this.radioButton1.Size = new System.Drawing.Size(86, 17);
             this.radioButton1.TabIndex = 2;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Zapamati me?";
+            this.radioButton1.Text = "Zapamti me?";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // label1

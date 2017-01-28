@@ -13,8 +13,10 @@ namespace WindowsFormsApplication1
     public partial class Početni : Form
     {
         private KorisnickiRacunPredlozak Korisnik;
-        public Početni(KorisnickiRacunPredlozak idKor)
+        private string pamti="nista";
+        public Početni(KorisnickiRacunPredlozak idKor, string zapamcen)
         {
+            this.pamti = zapamcen;
             Korisnik = idKor;
             InitializeComponent();
         }
@@ -57,8 +59,16 @@ namespace WindowsFormsApplication1
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 login=new Form1();
-            login.Show();
+            if (this.pamti != "nista")
+            {
+                Form1 login = new Form1(this.pamti);
+                login.Show();
+            }
+            else
+            {
+                Form1 login = new Form1();
+                login.Show();
+            }
 
         }
     }

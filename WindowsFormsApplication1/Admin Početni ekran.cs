@@ -12,8 +12,14 @@ namespace WindowsFormsApplication1
 {
     public partial class Admin_Početni_ekran : Form
     {
+        private string pamti="nista";
         public Admin_Početni_ekran()
         {
+            InitializeComponent();
+        }
+        public Admin_Početni_ekran(string zapamcen)
+        {
+            this.pamti = zapamcen;
             InitializeComponent();
         }
 
@@ -36,8 +42,18 @@ namespace WindowsFormsApplication1
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 login = new Form1();
-            login.Show();
+            if (this.pamti != "nista") { Form1 login = new Form1(this.pamti);
+                login.Show();
+            }
+            else { Form1 login = new Form1();
+                login.Show();
+            }
+            
+        }
+
+        private void Admin_Početni_ekran_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
