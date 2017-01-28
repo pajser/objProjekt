@@ -143,7 +143,7 @@ namespace WindowsFormsApplication1
             korisnici = new List<KorisnickiRacunPredlozak>();
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT KorisnickiRacun.idKorisnickiRacun FROM KorisnickiRacun LEFT JOIN ClanTIma ON KorisnickiRacun.idKorisnickiRacun=ClanTIma.idKorisnickiRacun WHERE ClanTIma.idKorisnickiRacun IS NULL";
+            command.CommandText = "SELECT KorisnickiRacun.idKorisnickiRacun, KorisnickiRacun.imePrezime FROM KorisnickiRacun LEFT JOIN ClanTIma ON KorisnickiRacun.idKorisnickiRacun=ClanTIma.idKorisnickiRacun WHERE ClanTIma.idKorisnickiRacun IS NULL";
             try
             {
                 conn.Open();
@@ -151,11 +151,8 @@ namespace WindowsFormsApplication1
                 while (reader.Read())
                 {
                     int idKorisnickiRacun = reader.GetInt32(0);
-                    string korisnickoIme = reader.GetString(1);
-                    string lozinka = reader.GetString(2);
-                    string imePrezime = reader.GetString(3);
-                    string jmbag = reader.GetString(4);
-                    korisnik = new KorisnickiRacunPredlozak(korisnickoIme, lozinka, imePrezime, jmbag);
+                    string imePrezime = reader.GetString(1);
+                    korisnik = new KorisnickiRacunPredlozak(idKorisnickiRacun, imePrezime);
                     korisnici.Add(korisnik);
                 }
             }
