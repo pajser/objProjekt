@@ -81,7 +81,11 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            int idBrisanog = Int32.Parse(listBox3.SelectedValue.ToString());
+           if(ClanTimaTablica.IzbrisiClanaTima(idBrisanog,this.pripadniTim.idTima))
+            {
+                System.Windows.MessageBox.Show("Član izbačen iz tima!");
+            }
         }
     }
 }
