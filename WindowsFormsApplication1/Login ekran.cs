@@ -35,33 +35,32 @@ namespace WindowsFormsApplication1
         {
             KorisnickiRacunPredlozak Kor = KorisnickiRacunTablica.UlogirajKorisnika(this.textBox1.Text, this.textBox2.Text);
 
-            if (Kor.idKorisnickiRacun == 1)//admin
+            if (Kor.idKorisnickiRacun == 0)//krivi podaci
             {
-                if (this.radioButton1.Checked)
-                    zapamcen = this.textBox1.Text;
-                else this.zapamcen = "nista";
-                Admin_Početni_ekran adminPočetni = new Admin_Početni_ekran(Kor, zapamcen);
-                adminPočetni.Show();
-                this.Hide();
-
+                System.Windows.MessageBox.Show("Krivo uneseni podaci!");
             }
             else
             {
-                if (Kor == null)
+                if (Kor.idKorisnickiRacun == 1)//admin
                 {
-                    //pokazi gresku da korisnik ne postoji
+                    if (this.radioButton1.Checked)
+                        zapamcen = this.textBox1.Text;
+                    else this.zapamcen = "nista";
+                    Admin_Početni_ekran adminPočetni = new Admin_Početni_ekran(Kor, zapamcen);
+                    adminPočetni.Show();
+                    this.Hide();
                 }
                 else
                 {
                     if (this.radioButton1.Checked)
                         zapamcen = this.textBox1.Text;
                     else this.zapamcen = "nista";
-                    Početni početni = new Početni(Kor,zapamcen);
+                    Početni početni = new Početni(Kor, zapamcen);
                     početni.Show();
                     this.Hide();
                 }
             }
-            
+ 
         }
     }
 }
