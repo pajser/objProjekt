@@ -230,6 +230,7 @@ namespace WindowsFormsApplication1
             button4.Hide();
             button6.Hide();
             button7.Hide();
+            this.textBox2.Text = "";
             this.button2.BackgroundImage = null;
             button2.BackColor = Color.Gray;
             button2.Text = "Zaključan projekt";
