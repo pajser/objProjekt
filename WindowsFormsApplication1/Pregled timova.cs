@@ -14,23 +14,27 @@ namespace WindowsFormsApplication1
     {
         List<TimPredlozak> timovi;
         private List<KorisnickiRacunPredlozak> ljudiPrikazanogTima;
-        private int idKorisnika;
+        private int idKorisnika=-1;
+        private bool uTimu;
         public Pregled_timova()
         {
             InitializeComponent();
             label1.Hide();
             textBox2.Hide();
             button2.Hide();
+            this.uTimu = true;
         }
         public Pregled_timova(int ID)
         {
             this.idKorisnika = ID;
             InitializeComponent();
             this.button1.Hide();
+            int idtima = ClanTimaTablica.DohvatiIdTima(this.idKorisnika);
+            if (idtima != 0) this.uTimu = true;
+            else this.uTimu = false;
         }
         private void label5_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Pregled_timova_Load(object sender, EventArgs e)
@@ -38,23 +42,20 @@ namespace WindowsFormsApplication1
             this.timovi = TimTablica.DohvatiSveTimove();
             listBox1.DataSource = timovi;
             listBox1.DisplayMember = "ImeTima";
-            listBox1.ValueMember = "IdTima";
-
-
-
-            
-
-            
+            listBox1.ValueMember = "IdTima";              
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            TimPredlozak gledaniTim = this.listBox1.SelectedItem as TimPredlozak;
+            TimTablica.OdobriProjekt(gledaniTim.idTima);
+            this.label4.Text="Status tima: Zaključan i odobren projekt";
+            this.button1.Hide();
+            this.button3.Hide();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,8 +64,39 @@ namespace WindowsFormsApplication1
             this.label3.Text = "Ime tima: " + gledaniTim.imeTima;
             this.label6.Text = "Ime aplikacije: " + gledaniTim.naslovAplikacije;
             this.textBox1.Text = gledaniTim.OpisAplikacije;
+            switch (gledaniTim.idStatusa)
+            {
+                case 1:
+                    this.label4.Text = "Status tima: Otvoren projekt";
+                break;
+                case 2:
+                    this.label4.Text = "Status tima: Zaključan projekt";
+                break;
+                case 3:
+                    this.label4.Text = "Status tima: Zaključan i odobren projekt";
+                break;
+            }
+            this.button1.Hide();
+            this.button3.Hide();
+            if (this.uTimu || gledaniTim.idStatusa>1)
+            {
+                this.button2.Hide();
+                this.label1.Hide();
+                this.textBox2.Hide();
+            }
+            else
+            {
+                this.button2.Show();
+                this.label1.Show();
+                this.textBox2.Show();
+            }
+            if (gledaniTim.idStatusa == 2 && this.idKorisnika == -1)
+            {
+                this.button1.Show();
+                this.button3.Show();
+            }
 
-            //tu
+
             this.ljudiPrikazanogTima = KorisnickiRacunTablica.DohvatiSveClanoveTima(gledaniTim.idTima);
             listBox2.DataSource = ljudiPrikazanogTima;
             listBox2.DisplayMember = "imeP";
@@ -81,6 +113,15 @@ namespace WindowsFormsApplication1
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            TimPredlozak gledaniTim = this.listBox1.SelectedItem as TimPredlozak;
+            TimTablica.OtkljucajProjekt(gledaniTim.idTima);
+            this.label4.Text = "Status tima: Otvoren projekt";
+            this.button1.Hide();
+            this.button3.Hide();
         }
     }
 }

@@ -237,7 +237,7 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            TimTablica.ZakljucajTim(this.pripadniTim.IdTima);
+            TimTablica.ZakljucajProjekt(this.pripadniTim.IdTima);
             ZahtjevTablica.IzbrisiZahtjev(-1, pripadniTim.idTima);
             button1.Hide();
             button3.Hide();

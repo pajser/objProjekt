@@ -180,9 +180,8 @@ namespace WindowsFormsApplication1
             return timovi;
         }
 
-        public static bool ZakljucajTim(int idTima)
+        public static bool ZakljucajProjekt(int idTima)
         {
-            //tim = new TimPredlozak(imeTima, naslovAplikacije, opisAplikacije, status, bodovi);
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand command = conn.CreateCommand();
             command.CommandText = "UPDATE Tim SET idStatusa = 2 WHERE idTima = " + idTima;
@@ -200,9 +199,47 @@ namespace WindowsFormsApplication1
                 return false;
             }
             return false;
-        }//od dodaj
-
-
+        }
+        public static bool OtkljucajProjekt(int idTima)
+        {
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "UPDATE Tim SET idStatusa = 1 WHERE idTima = " + idTima;
+            try
+            {
+                conn.Open();
+                int test = command.ExecuteNonQuery();
+                if (test > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return false;
+        }
+        public static bool OdobriProjekt(int idTima)
+        {
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "UPDATE Tim SET idStatusa = 3 WHERE idTima = " + idTima;
+            try
+            {
+                conn.Open();
+                int test = command.ExecuteNonQuery();
+                if (test > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return false;
+        }
     }//klasa
 
 }//namespace
