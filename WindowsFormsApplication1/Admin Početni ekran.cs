@@ -39,7 +39,8 @@ namespace WindowsFormsApplication1
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {        
+        {
+            this.Hide();
             if (this.pamti != "nista") { Form1 login = new Form1(this.pamti);
                 login.Show();
             }
