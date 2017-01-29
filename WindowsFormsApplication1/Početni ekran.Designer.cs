@@ -59,7 +59,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(270, 53);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Pregled timova";
+            this.button2.Text = "Pregled projekata";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.pregledtim_Click);
             // 
@@ -80,8 +80,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(242, -2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(375, 39);
@@ -94,7 +94,7 @@
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button4.Location = new System.Drawing.Point(368, 511);
+            this.button4.Location = new System.Drawing.Point(358, 511);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(153, 38);
             this.button4.TabIndex = 4;
@@ -129,6 +129,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Početni";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Početni_Load);
             this.ResumeLayout(false);

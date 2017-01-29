@@ -72,10 +72,12 @@
             // listBox1
             // 
             this.listBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(12, 124);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(302, 303);
+            this.listBox1.Size = new System.Drawing.Size(302, 292);
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -203,6 +205,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Name = "Pregled_timova";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pregled_timova";
             this.Load += new System.EventHandler(this.Pregled_timova_Load);
             this.ResumeLayout(false);
