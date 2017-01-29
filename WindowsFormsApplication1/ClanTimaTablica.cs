@@ -142,7 +142,27 @@ namespace WindowsFormsApplication1
             return false;
         }//od dodaj
 
-
+        public static bool DohvatiVodstvo(int idKorisnickiRacun)
+        {
+            bool rez = false;
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT vodja FROM ClanTIma WHERE idKorisnickiRacun = '" + idKorisnickiRacun.ToString() + "'";
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    rez = reader.GetBoolean(0);
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return rez;
+        }//od dohvatiIdTima
 
 
 

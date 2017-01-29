@@ -48,6 +48,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -110,6 +111,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Zaključaj projekt";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label4
             // 
@@ -281,6 +283,19 @@
             this.listBox2.TabIndex = 25;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
+            // button5
+            // 
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button5.Location = new System.Drawing.Point(81, 473);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(112, 35);
+            this.button5.TabIndex = 26;
+            this.button5.Text = "Izađi iz tima";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Moj_tim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +303,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1168, 514);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label8);
@@ -336,5 +352,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button button5;
     }
 }

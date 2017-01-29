@@ -35,7 +35,7 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Pregled_timova timovi = new Pregled_timova(Korisnik.idKorisnickiRacun);
+            Pregled_timova timovi = new Pregled_timova();
             timovi.Show();
         }
 

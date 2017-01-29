@@ -19,13 +19,41 @@ namespace WindowsFormsApplication1
         private List<KorisnickiRacunPredlozak> timskiKorisnici;
         private List<KorisnikZahtjevPredlozak> zeljniKorisnici;
         private TimPredlozak pripadniTim;
-        public Moj_tim(int id)
+        private int idOsobe;
+        public Moj_tim(int id,int idO)
         {
             try
             {
                 pripadniTim = TimTablica.DohvatiTimPoIdu(id);
                 pripadniTim.idTima = id;
+                idOsobe = idO;
                 InitializeComponent();
+                bool voda = ClanTimaTablica.DohvatiVodstvo(idO);
+                if (voda)
+                {
+                    button5.Hide();
+                }
+                else
+                {
+                    button1.Hide();
+                    button2.Hide();
+                    button3.Hide();
+                    button4.Hide();
+                    button6.Hide();
+                    button7.Hide();
+                }
+                if(pripadniTim.idStatusa>1)
+                {
+                    button1.Hide();
+                    button3.Hide();
+                    button4.Hide();
+                    button5.Hide();
+                    button6.Hide();
+                    button7.Hide();
+                    this.button2.BackgroundImage = null;
+                    button2.BackColor = Color.Gray;
+                    button2.Text = "Zaključan projekt";
+                }
             }
             catch(Exception žnj)
             {
@@ -182,6 +210,29 @@ namespace WindowsFormsApplication1
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int idBrisanog = idOsobe;
+            if (ClanTimaTablica.IzbrisiClanaTima(idBrisanog, this.pripadniTim.idTima))
+            {
+                System.Windows.MessageBox.Show("Izašao si iz tima!");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TimTablica.ZakljucajTim(this.pripadniTim.IdTima);
+            ZahtjevTablica.IzbrisiZahtjev(-1, pripadniTim.idTima);
+            button1.Hide();
+            button3.Hide();
+            button4.Hide();
+            button6.Hide();
+            button7.Hide();
+            this.button2.BackgroundImage = null;
+            button2.BackColor = Color.Gray;
+            button2.Text = "Zaključan projekt";
         }
     }
 }

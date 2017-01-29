@@ -180,7 +180,27 @@ namespace WindowsFormsApplication1
             return timovi;
         }
 
-
+        public static bool ZakljucajTim(int idTima)
+        {
+            //tim = new TimPredlozak(imeTima, naslovAplikacije, opisAplikacije, status, bodovi);
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "UPDATE Tim SET idStatusa = 2 WHERE idTima = " + idTima;
+            try
+            {
+                conn.Open();
+                int test = command.ExecuteNonQuery();
+                if (test > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return false;
+        }//od dodaj
 
 
     }//klasa

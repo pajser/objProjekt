@@ -18,11 +18,15 @@ namespace WindowsFormsApplication1
         public Pregled_timova()
         {
             InitializeComponent();
+            label1.Hide();
+            textBox2.Hide();
+            button2.Hide();
         }
         public Pregled_timova(int ID)
         {
             this.idKorisnika = ID;
             InitializeComponent();
+            this.button1.Hide();
         }
         private void label5_Click(object sender, EventArgs e)
         {

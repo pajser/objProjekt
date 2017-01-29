@@ -33,14 +33,20 @@ namespace WindowsFormsApplication1
             try
             {
                 int idTima = Int32.Parse(listBox1.SelectedValue.ToString());
-                System.Windows.MessageBox.Show(idTima.ToString());
-                ClanTimaTablica.DodajClanTima(this.korisnikk.idKorisnickiRacun, idTima, false);
-                ZahtjevTablica.IzbrisiZahtjev(this.korisnikk.idKorisnickiRacun, -1);
+                bool x = ClanTimaTablica.DodajClanTima(this.korisnikk.idKorisnickiRacun, idTima, false);
+                bool y = ZahtjevTablica.IzbrisiZahtjev(this.korisnikk.idKorisnickiRacun, -1);
+                if (x && y) { System.Windows.MessageBox.Show("Uspješno si ušao u tim!"); }
+
             }
             catch (Exception ž) {
 
             }
             this.Hide();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
