@@ -50,7 +50,7 @@ namespace WindowsFormsApplication1
             korZahtjevi = new List<KorisnikZahtjevPredlozak>();
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT KorisnickiRacun.idKorisnickiRacun, KorisnickiRacun.imePrezime, Zahtjev.poruka FROM Zahtjev LEFT JOIN KorisnickiRacun ON Zahtjev.idKorisnickiRacun = KorisnickiRacun.idKorisnickiRacun WHERE Zahtjev.idTima = " + idTima;
+            command.CommandText = "SELECT KorisnickiRacun.idKorisnickiRacun, KorisnickiRacun.imePrezime, Zahtjev.poruka FROM Zahtjev LEFT JOIN KorisnickiRacun ON Zahtjev.idKorisnickiRacun = KorisnickiRacun.idKorisnickiRacun WHERE Zahtjev.idTima = " + idTima  + " AND iniciraKorisnik = 1";
             try
             {
                 conn.Open();

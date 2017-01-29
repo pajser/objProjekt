@@ -143,7 +143,7 @@ namespace WindowsFormsApplication1
             korisnici = new List<KorisnickiRacunPredlozak>();
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT KorisnickiRacun.idKorisnickiRacun, KorisnickiRacun.imePrezime FROM KorisnickiRacun LEFT JOIN ClanTIma ON KorisnickiRacun.idKorisnickiRacun=ClanTIma.idKorisnickiRacun WHERE ClanTIma.idKorisnickiRacun IS NULL";
+            command.CommandText = "SELECT KorisnickiRacun.idKorisnickiRacun, KorisnickiRacun.imePrezime FROM KorisnickiRacun LEFT JOIN ClanTIma ON KorisnickiRacun.idKorisnickiRacun=ClanTIma.idKorisnickiRacun WHERE ClanTIma.idKorisnickiRacun IS NULL AND KorisnickiRacun.korisnickoIme != 'admin'";
             try
             {
                 conn.Open();
