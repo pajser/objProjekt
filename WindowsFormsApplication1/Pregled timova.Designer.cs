@@ -159,9 +159,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(753, 273);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 36);
+            this.label1.Size = new System.Drawing.Size(251, 36);
             this.label1.TabIndex = 26;
-            this.label1.Text = "Dodatna poruka uz zahtjev za ulazak:\r\n (opcionalno)";
+            this.label1.Text = "Dodatna poruka uz zahtjev za ulazak\r\n (opcionalno)";
             // 
             // listBox2
             // 
@@ -183,9 +183,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Location = new System.Drawing.Point(377, 337);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 20);
+            this.label2.Size = new System.Drawing.Size(106, 20);
             this.label2.TabIndex = 28;
-            this.label2.Text = "Članovi tima:";
+            this.label2.Text = "Članovi tima";
             // 
             // label4
             // 

@@ -14,7 +14,7 @@ namespace WindowsFormsApplication1
     {
         private KorisnickiRacunPredlozak Korisnik;
         private string pamti = "nista";
-        
+       
         public Admin_Početni_ekran(KorisnickiRacunPredlozak idKor, string zapamcen)
         {
             this.pamti = zapamcen;
@@ -24,7 +24,6 @@ namespace WindowsFormsApplication1
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,20 +39,17 @@ namespace WindowsFormsApplication1
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+        {        
             if (this.pamti != "nista") { Form1 login = new Form1(this.pamti);
                 login.Show();
             }
             else { Form1 login = new Form1();
                 login.Show();
-            }
-            
+            }        
         }
-
+    
         private void Admin_Početni_ekran_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
