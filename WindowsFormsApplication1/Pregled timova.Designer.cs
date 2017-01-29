@@ -91,9 +91,9 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Location = new System.Drawing.Point(471, 130);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 20);
+            this.label7.Size = new System.Drawing.Size(102, 20);
             this.label7.TabIndex = 23;
-            this.label7.Text = "Opis Aplikacije";
+            this.label7.Text = "Opis projekta";
             // 
             // textBox1
             // 
@@ -113,9 +113,9 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Location = new System.Drawing.Point(471, 86);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 20);
+            this.label6.Size = new System.Drawing.Size(117, 20);
             this.label6.TabIndex = 21;
-            this.label6.Text = "Ime Aplikacije";
+            this.label6.Text = "Naslov projekta";
             // 
             // label3
             // 
@@ -195,9 +195,9 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(718, 124);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 20);
+            this.label4.Size = new System.Drawing.Size(137, 20);
             this.label4.TabIndex = 29;
-            this.label4.Text = "Status tima:";
+            this.label4.Text = "Status projekta:";
             // 
             // button3
             // 
@@ -235,7 +235,6 @@
             this.Controls.Add(this.label5);
             this.Name = "Pregled_timova";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pregled_timova";
             this.Load += new System.EventHandler(this.Pregled_timova_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -49,9 +49,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(388, 140);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 16);
+            this.label1.Size = new System.Drawing.Size(109, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Username";
+            this.label1.Text = "Korisničko ime";
             // 
             // label2
             // 
@@ -61,9 +61,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(390, 204);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 16);
+            this.label2.Size = new System.Drawing.Size(61, 16);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Password";
+            this.label2.Text = "Lozinka";
             // 
             // label3
             // 
@@ -160,7 +160,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Novi_korisnik";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Novi_korisnik";
             this.Load += new System.EventHandler(this.Novi_korisnik_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

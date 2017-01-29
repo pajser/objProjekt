@@ -36,7 +36,7 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e)
             {
-                System.Windows.MessageBox.Show("korisnik je već pozvan u tim");
+                System.Windows.MessageBox.Show("Zahtjev je već poslan.");
                 return false;
             }
             return false;

@@ -46,7 +46,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(270, 53);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Moj tim";
+            this.button1.Text = "Moj projekt";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.mojtim_Click);
             // 
@@ -72,7 +72,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(270, 53);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Napravi novi tim";
+            this.button3.Text = "Napravi novi projekt";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.kreirajtim_Click);
             // 
@@ -130,7 +130,6 @@
             this.Controls.Add(this.button1);
             this.Name = "Početni";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
             this.Load += new System.EventHandler(this.Početni_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

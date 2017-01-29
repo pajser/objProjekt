@@ -98,7 +98,6 @@
             this.Controls.Add(this.button2);
             this.Name = "Admin_Početni_ekran";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Admin_Početni_ekran";
             this.Load += new System.EventHandler(this.Admin_Početni_ekran_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

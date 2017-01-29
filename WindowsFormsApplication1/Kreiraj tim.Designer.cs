@@ -48,7 +48,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(154, 51);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Napravi tim!";
+            this.button1.Text = "Napravi projekt!";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -71,7 +71,7 @@
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox3.Location = new System.Drawing.Point(133, 286);
+            this.textBox3.Location = new System.Drawing.Point(120, 286);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(364, 134);
@@ -97,9 +97,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(130, 267);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 16);
+            this.label2.Size = new System.Drawing.Size(101, 16);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Opis aplikacije";
+            this.label2.Text = "Opis projekta";
             // 
             // label3
             // 
@@ -109,9 +109,9 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(242, 178);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 16);
+            this.label3.Size = new System.Drawing.Size(118, 16);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Naslov aplikacije";
+            this.label3.Text = "Naslov projekta";
             // 
             // label4
             // 
@@ -119,11 +119,11 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(150, 9);
+            this.label4.Location = new System.Drawing.Point(104, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(335, 39);
+            this.label4.Size = new System.Drawing.Size(396, 39);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Kreiranje novog tima";
+            this.label4.Text = "Kreiranje novog Projekta";
             // 
             // Tim
             // 
@@ -140,7 +140,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Name = "Tim";
-            this.Text = "Tim";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Tim_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

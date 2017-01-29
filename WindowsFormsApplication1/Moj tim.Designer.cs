@@ -73,7 +73,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Clanovi mog tima";
+            this.label1.Text = "Članovi mog tima";
             // 
             // label2
             // 
@@ -170,7 +170,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(683, 97);
+            this.label5.Location = new System.Drawing.Point(676, 97);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 18);
             this.label5.TabIndex = 15;
@@ -324,7 +324,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Name = "Moj_tim";
-            this.Text = "Moj_tim";
             this.Load += new System.EventHandler(this.Moj_tim_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -82,7 +82,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Nep_Tim";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nep_Tim";
             this.Load += new System.EventHandler(this.Nep_Tim_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
