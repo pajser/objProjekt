@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
                 Moj_tim moj_tim = new Moj_tim(idtima,Korisnik.idKorisnickiRacun);
                 moj_tim.Show();
             }
-            else System.Windows.MessageBox.Show("Nisi u timu");
+            else System.Windows.MessageBox.Show("Trenutno se ne nalaziš niti u jednom timu!");
         }
         private void pregledtim_Click(object sender, EventArgs e)
         {
@@ -39,7 +39,7 @@ namespace WindowsFormsApplication1
         private void kreirajtim_Click(object sender, EventArgs e)
         {
             int idtima = ClanTimaTablica.DohvatiIdTima(this.Korisnik.idKorisnickiRacun);
-            if (idtima != 0) System.Windows.MessageBox.Show("Ne možeš kreirat tim dok si već u timu!");
+            if (idtima != 0) System.Windows.MessageBox.Show("Ne možeš kreirati tim ako si već član jednog tima!");
             else {
                 Tim tim = new Tim(this.Korisnik);
                 tim.Show();
@@ -73,7 +73,10 @@ namespace WindowsFormsApplication1
         private void button5_Click(object sender, EventArgs e)
         {
             int idtima = ClanTimaTablica.DohvatiIdTima(this.Korisnik.idKorisnickiRacun);
-            if (idtima != 0) System.Windows.MessageBox.Show("Nemaš zahtjeva, već si u timu!");
+            if (idtima != 0)
+            {
+                System.Windows.MessageBox.Show("Kao član tima ne možete primati zahtjeve za pridruživanje drugom timu.");
+            }
             else
             {
                 Nep_Tim tim = new Nep_Tim(this.Korisnik);

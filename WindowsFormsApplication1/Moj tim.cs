@@ -98,11 +98,25 @@ namespace WindowsFormsApplication1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ClanTimaTablica.IzbrisiClanoveTima(this.pripadniTim.idTima);
-            ZahtjevTablica.IzbrisiZahtjev(-1, this.pripadniTim.idTima);
-            TimTablica.IzbrisiTim(this.pripadniTim.idTima);
-            System.Windows.MessageBox.Show("Članovi tima izbačeni i projekt uspješno izbrisan!");
-            this.Hide();
+            DialogResult dialogResult = MessageBox.Show("Jeste li sigurni da želite obrisati projekt?", "Upozorenje!", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                ClanTimaTablica.IzbrisiClanoveTima(this.pripadniTim.idTima);
+                ZahtjevTablica.IzbrisiZahtjev(-1, this.pripadniTim.idTima);
+                TimTablica.IzbrisiTim(this.pripadniTim.idTima);
+                System.Windows.MessageBox.Show("Članovi tima izbačeni i projekt uspješno izbrisan!");
+                this.Hide();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //se ne desi ništa
+            }
+
+
+
+
+
+            
 
 
         }
@@ -112,7 +126,7 @@ namespace WindowsFormsApplication1
             int idPozvanog = Int32.Parse(listBox3.SelectedValue.ToString());
             if(ZahtjevTablica.DodajZahtjev(idPozvanog, this.pripadniTim.idTima, false, null))
             {
-                System.Windows.MessageBox.Show("Uspješno pozvan u tim!");
+                System.Windows.MessageBox.Show("Uspješno poslan zahtjev korisniku!");
                 this.soloKorisnici = KorisnickiRacunTablica.DohvatiSveSlobodneKorisnike();
                 listBox3.DataSource = soloKorisnici;
                 listBox3.DisplayMember = "";
