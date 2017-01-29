@@ -54,6 +54,7 @@ namespace WindowsFormsApplication1
             TimPredlozak gledaniTim = this.listBox1.SelectedItem as TimPredlozak;
             TimTablica.OdobriProjekt(gledaniTim.idTima);
             this.label4.Text="Status tima: Zaključan i odobren projekt";
+            gledaniTim.idStatusa = 3;
             this.button1.Hide();
             this.button3.Hide();
         }
@@ -119,6 +120,7 @@ namespace WindowsFormsApplication1
         {
             TimPredlozak gledaniTim = this.listBox1.SelectedItem as TimPredlozak;
             TimTablica.OtkljucajProjekt(gledaniTim.idTima);
+            gledaniTim.idStatusa = 1;
             this.label4.Text = "Status tima: Otvoren projekt";
             this.button1.Hide();
             this.button3.Hide();
