@@ -30,7 +30,7 @@ namespace UnitTestProject1
             string nameSurnam_test = "Otto Singer";
             string jmbag_test = "009409565545";
             //KorisnickiRacunTablica tabl = new KorisnickiRacunTablica();
-            string dobiven = KorisnickiRacunTablica.DodajKorisnika_Testiranje(usernam_test, password_test, nameSurnam_test, jmbag_test);
+            string dobiven = test_za_test.DodajKorisnika_Testiranje(usernam_test, password_test, nameSurnam_test, jmbag_test);
 
             Assert.AreEqual(ocekivan, dobiven);// true, "Upiti su isti - SQL je case insensitive");
 
