@@ -190,6 +190,15 @@ namespace WindowsFormsApplication1
             return korisnici;
         }
 
+        public static string DodajKorisnika_Testiranje(string user, string pass, string imePrezime, string jmbag)
+        {
+            string connectionStringTest = "INSERT INTO KorisnickiRacun Values ('" + user + "', '" + pass + "', '" + imePrezime + "', '" + jmbag + "')";
+            return connectionStringTest;
+        }
+
+
+
+
 
     }//klasa
 }//namespace
