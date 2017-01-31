@@ -103,6 +103,7 @@
     <Compile Include="Kreiraj tim.Designer.cs">
       <DependentUpon>Kreiraj tim.cs</DependentUpon>
     </Compile>
+    <Compile Include="test za test.cs" />
     <Compile Include="TimPredlozak.cs" />
     <Compile Include="TimTablica.cs" />
     <Compile Include="ZahtjevPredlozak.cs" />

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class KorisnickiRacunTablica
+    public class KorisnickiRacunTablica
     {
         public static List<KorisnickiRacunPredlozak> korisnici;
         public static KorisnickiRacunPredlozak korisnik;
