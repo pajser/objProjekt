@@ -18,7 +18,7 @@ namespace handling_projects.Models
 
         public bool requestSent(int _idKorisnickiRacun, int _idTima) 
         {
-            string query = "SELECT DISTINCT Zahtjev.idKorisnickiRacun, Zahtjev.idTima FROM Zahtjev WHERE Zahtjev.idkorisnickiRacun = " + _idKorisnickiRacun+" AND Zahtjev.idTima = "+_idTima;
+            string query = "SELECT DISTINCT Zahtjev.idKorisnickiRacun, Zahtjev.idTima FROM Zahtjev WHERE Zahtjev.idkorisnickiRacun = " + _idKorisnickiRacun+" AND Zahtjev.idTima = "+_idTima+" AND Zahtjev.iniciraKorisnik = 1";
             DBhelper DB = new DBhelper(query);
             DB.reader = DB.command.ExecuteReader();
             if (DB.reader.Read())
