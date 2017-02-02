@@ -29,8 +29,9 @@ namespace WindowsFormsApplication1
             DataTable dt = new DataTable();
             if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "")
             {
-                textBox2.Text = textBox2.Text.Substring(0, 10);
-                bool uspjesnost = TimTablica.DodajTim(this.textBox1.Text, this.textBox2.Text, this.textBox3.Text, 1, 0);
+                string pom = textBox2.Text + "                                             ";
+                pom = pom.Substring(0, 10);
+                bool uspjesnost = TimTablica.DodajTim(this.textBox1.Text, pom, this.textBox3.Text, 1, 0);
                 int idTima = TimTablica.DohvatiIdTima(this.textBox1.Text);
                 bool uspjesnost123 = ClanTimaTablica.DodajClanTima(kreator.idKorisnickiRacun, idTima, true);
                 if (uspjesnost123)
