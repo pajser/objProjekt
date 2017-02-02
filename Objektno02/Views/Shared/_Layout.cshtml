@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <!-- Static navbar -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <p class="navbar-brand">OObjekt Projekt</p>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Moj projekt", "My", "Project")</li>
+                        <li>@Html.ActionLink("Pregled projekata", "All", "Project")</li>
+                        <li>@Html.ActionLink("Novi projekt", "New", "Project")</li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @if (Request.IsAuthenticated)
+                            {
+
+                                <p class="navbar-text">Dobrodošao @Html.Encode(User.Identity.Name)</p>
+                            }
+                        </li>
+                        <li>
+                          
+                            @if (Request.IsAuthenticated)
+                            {
+                                
+                                @Html.ActionLink("Sign Out", "Logout", "User")
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Sign In", "Login", "User")
+                            }
+                            
+                        </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav>
+
+
+        @RenderBody()
+
+    </div>
+    <br />
+    <br />
+    <br />
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

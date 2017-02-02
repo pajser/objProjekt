@@ -1,0 +1,87 @@
+﻿@model handling_projects.Models.Project
+@{
+    ViewBag.Title = "My";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<br />
+<h4>Moj Projekt</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <h4>Tim @Model.team.imeTima</h4>
+        <h4>Aplikacija @Model.team.naslovAplikacije</h4>
+        <br />
+        <p>@Model.team.opisAplikacije</p>
+        <br />
+
+        Vođa Tima:
+        <br />
+        <br />
+        <ul class="list-group">
+            <li class="list-group-item">
+                @Model.leader.imePrezime | @Model.leader.jmbag
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-md-4">
+        Članovi tima:
+        <br />
+        <br />
+        <ul class="list-group">
+            @foreach (var user in Model.members)
+            {
+
+                <li class="list-group-item">
+                    @user.imePrezime | @user.jmbag
+                    @if (Model.team.idStatusa == 1)
+                    {
+                        @Html.ActionLink("Izbaci", "removeUser", "Project", new { idUser = @user.idKorisnickiRacun }, null)
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-4">
+        Zahtjevi za ulazak u tim:
+        <br />
+        <br />
+        <ul class="list-group">
+            @foreach (var user in Model.joinRequests)
+            {
+
+                <li class="list-group-item">
+                    @user.imePrezime | @user.jmbag
+                    @if (Model.team.idStatusa == 1)
+                    {
+                        <br />
+                        @Html.ActionLink("Prihvati", "Accept", "Request", new { idUser = @user.idKorisnickiRacun, idTeam = @Model.team.idTima }, null)
+                        <br />
+                        @Html.ActionLink("Odbij", "Decline", "Request", new { idUser = @user.idKorisnickiRacun, idTeam = @Model.team.idTima }, null)
+                    }
+                </li>
+
+            }
+        </ul>
+    </div>
+</div>
+
+<br />
+@if (Model.team.idStatusa == 1)
+{
+    @Html.ActionLink("IZBRIŠI TIM", "Delete", "Project", new { idUser = Model.leader.idKorisnickiRacun }, new { @class = "btn btn-danger pull-right" })
+    @Html.ActionLink("ZAKLJUČAJ", "Lock", "Project", new { idUser = Model.leader.idKorisnickiRacun }, new { @class = "btn btn-success " });
+}
+@if (Model.team.idStatusa == 2)
+{
+
+    @Html.ActionLink("OTKLJUČAJ", "Unlock", "Project", new { idUser = Model.leader.idKorisnickiRacun }, new { @class = "btn btn-danger" });
+
+}
+
+
+
+
+

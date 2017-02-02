@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9186b9440a7c4681a09e1aa9c5eece6f" Name="Diagram1">
+        <EntityTypeShape EntityType="OObjektProjektDBModel.ClanTIma" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OObjektProjektDBModel.KorisnickiRacun" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="OObjektProjektDBModel.StatusTima" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="OObjektProjektDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OObjektProjektDBModel.Tim" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OObjektProjektDBModel.Zahtjev" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="OObjektProjektDBModel.FK_ClanTIma_KorisnickiRacun" ManuallyRouted="false" />
+        <AssociationConnector Association="OObjektProjektDBModel.FK_ClanTIma_Tim" ManuallyRouted="false" />
+        <AssociationConnector Association="OObjektProjektDBModel.FK_Zahtjev_KorisnickiRacun" ManuallyRouted="false" />
+        <AssociationConnector Association="OObjektProjektDBModel.FK_Tim_StatusTima" ManuallyRouted="false" />
+        <AssociationConnector Association="OObjektProjektDBModel.FK_Zahtjev_Tim" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

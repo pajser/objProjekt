@@ -1,0 +1,37 @@
+﻿@model IEnumerable<handling_projects.Models.Project>
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h4>Pregled projekata</h4>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Ime Tima</th>
+            <th>Naslov Aplikacije</th>
+            <th>Vođa Tima</th>
+            <th>JMBAG</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0; }
+        @foreach (var project in Model)
+        {
+            i++;
+            <tr>
+                <th scope="row">@i</th>
+                <td>@project.team.imeTima</td>
+                <td>@project.team.naslovAplikacije</td>
+                <td>@project.leader.imePrezime</td>
+                <td>@project.leader.jmbag</td>
+                <td>@Html.ActionLink("Profile", "Profile", "Project", new { id = @project.leader.idKorisnickiRacun }, null)</td>
+            </tr>
+
+        }
+    </tbody>
+</table>

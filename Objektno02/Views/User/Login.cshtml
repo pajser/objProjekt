@@ -1,0 +1,33 @@
+﻿@model handling_projects.Models.KorisnickiRacun
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-4"></div>
+
+<div class="col-md-4">
+    @using (Html.BeginForm("Login", "User", FormMethod.Post))
+    {
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(k => k.korisnickoIme)
+            @Html.TextBoxFor(k => k.korisnickoIme, new { @class = "form-control" })
+            @Html.ValidationMessageFor(k => k.korisnickoIme)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(k => k.lozinka)
+            @Html.PasswordFor(k => k.lozinka, new { @class = "form-control" })
+            @Html.ValidationMessageFor(k => k.lozinka)
+        </div>
+        <div class="form-group">
+            @Html.CheckBoxFor(k => k.zapamtiMe)
+            @Html.LabelFor(k => k.zapamtiMe)
+        </div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+
+        @Html.ValidationSummary(true, "Login failed. Check your login details.");
+    }
+</div>
+

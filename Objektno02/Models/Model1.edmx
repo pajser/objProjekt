@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OObjektProjektDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClanTIma">
+          <Key>
+            <PropertyRef Name="idKorisnickiRacun" />
+            <PropertyRef Name="idTima" />
+          </Key>
+          <Property Name="idKorisnickiRacun" Type="int" Nullable="false" />
+          <Property Name="idTima" Type="int" Nullable="false" />
+          <Property Name="vodja" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KorisnickiRacun">
+          <Key>
+            <PropertyRef Name="idKorisnickiRacun" />
+          </Key>
+          <Property Name="idKorisnickiRacun" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="korisnickoIme" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lozinka" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="imePrezime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="jmbag" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusTima">
+          <Key>
+            <PropertyRef Name="idStatusa" />
+          </Key>
+          <Property Name="idStatusa" Type="int" Nullable="false" />
+          <Property Name="stanje" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tim">
+          <Key>
+            <PropertyRef Name="idTima" />
+          </Key>
+          <Property Name="idTima" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imeTima" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="naslovAplikacije" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="opisAplikacije" Type="ntext" Nullable="false" />
+          <Property Name="idStatusa" Type="int" Nullable="false" />
+          <Property Name="bodovi" Type="int" />
+        </EntityType>
+        <EntityType Name="Zahtjev">
+          <Key>
+            <PropertyRef Name="idKorisnickiRacun" />
+            <PropertyRef Name="idTima" />
+          </Key>
+          <Property Name="idKorisnickiRacun" Type="int" Nullable="false" />
+          <Property Name="idTima" Type="int" Nullable="false" />
+          <Property Name="iniciraKorisnik" Type="bit" Nullable="false" />
+          <Property Name="poruka" Type="ntext" />
+        </EntityType>
+        <Association Name="FK_ClanTIma_KorisnickiRacun">
+          <End Role="KorisnickiRacun" Type="Self.KorisnickiRacun" Multiplicity="1" />
+          <End Role="ClanTIma" Type="Self.ClanTIma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KorisnickiRacun">
+              <PropertyRef Name="idKorisnickiRacun" />
+            </Principal>
+            <Dependent Role="ClanTIma">
+              <PropertyRef Name="idKorisnickiRacun" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClanTIma_Tim">
+          <End Role="Tim" Type="Self.Tim" Multiplicity="1" />
+          <End Role="ClanTIma" Type="Self.ClanTIma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tim">
+              <PropertyRef Name="idTima" />
+            </Principal>
+            <Dependent Role="ClanTIma">
+              <PropertyRef Name="idTima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tim_StatusTima">
+          <End Role="StatusTima" Type="Self.StatusTima" Multiplicity="1" />
+          <End Role="Tim" Type="Self.Tim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusTima">
+              <PropertyRef Name="idStatusa" />
+            </Principal>
+            <Dependent Role="Tim">
+              <PropertyRef Name="idStatusa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zahtjev_KorisnickiRacun">
+          <End Role="KorisnickiRacun" Type="Self.KorisnickiRacun" Multiplicity="1" />
+          <End Role="Zahtjev" Type="Self.Zahtjev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KorisnickiRacun">
+              <PropertyRef Name="idKorisnickiRacun" />
+            </Principal>
+            <Dependent Role="Zahtjev">
+              <PropertyRef Name="idKorisnickiRacun" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zahtjev_Tim">
+          <End Role="Tim" Type="Self.Tim" Multiplicity="1" />
+          <End Role="Zahtjev" Type="Self.Zahtjev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tim">
+              <PropertyRef Name="idTima" />
+            </Principal>
+            <Dependent Role="Zahtjev">
+              <PropertyRef Name="idTima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OObjektProjektDBModelStoreContainer">
+          <EntitySet Name="ClanTIma" EntityType="Self.ClanTIma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KorisnickiRacun" EntityType="Self.KorisnickiRacun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusTima" EntityType="Self.StatusTima" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tim" EntityType="Self.Tim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zahtjev" EntityType="Self.Zahtjev" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ClanTIma_KorisnickiRacun" Association="Self.FK_ClanTIma_KorisnickiRacun">
+            <End Role="KorisnickiRacun" EntitySet="KorisnickiRacun" />
+            <End Role="ClanTIma" EntitySet="ClanTIma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClanTIma_Tim" Association="Self.FK_ClanTIma_Tim">
+            <End Role="Tim" EntitySet="Tim" />
+            <End Role="ClanTIma" EntitySet="ClanTIma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tim_StatusTima" Association="Self.FK_Tim_StatusTima">
+            <End Role="StatusTima" EntitySet="StatusTima" />
+            <End Role="Tim" EntitySet="Tim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zahtjev_KorisnickiRacun" Association="Self.FK_Zahtjev_KorisnickiRacun">
+            <End Role="KorisnickiRacun" EntitySet="KorisnickiRacun" />
+            <End Role="Zahtjev" EntitySet="Zahtjev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zahtjev_Tim" Association="Self.FK_Zahtjev_Tim">
+            <End Role="Tim" EntitySet="Tim" />
+            <End Role="Zahtjev" EntitySet="Zahtjev" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OObjektProjektDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClanTIma">
+          <Key>
+            <PropertyRef Name="idKorisnickiRacun" />
+            <PropertyRef Name="idTima" />
+          </Key>
+          <Property Name="idKorisnickiRacun" Type="Int32" Nullable="false" />
+          <Property Name="idTima" Type="Int32" Nullable="false" />
+          <Property Name="vodja" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="KorisnickiRacun" Relationship="Self.FK_ClanTIma_KorisnickiRacun" FromRole="ClanTIma" ToRole="KorisnickiRacun" />
+          <NavigationProperty Name="Tim" Relationship="Self.FK_ClanTIma_Tim" FromRole="ClanTIma" ToRole="Tim" />
+        </EntityType>
+        <EntityType Name="KorisnickiRacun">
+          <Key>
+            <PropertyRef Name="idKorisnickiRacun" />
+          </Key>
+          <Property Name="idKorisnickiRacun" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="korisnickoIme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lozinka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="imePrezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="jmbag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ClanTImas" Relationship="Self.FK_ClanTIma_KorisnickiRacun" FromRole="KorisnickiRacun" ToRole="ClanTIma" />
+          <NavigationProperty Name="Zahtjevs" Relationship="Self.FK_Zahtjev_KorisnickiRacun" FromRole="KorisnickiRacun" ToRole="Zahtjev" />
+        </EntityType>
+        <EntityType Name="StatusTima">
+          <Key>
+            <PropertyRef Name="idStatusa" />
+          </Key>
+          <Property Name="idStatusa" Type="Int32" Nullable="false" />
+          <Property Name="stanje" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tims" Relationship="Self.FK_Tim_StatusTima" FromRole="StatusTima" ToRole="Tim" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tim">
+          <Key>
+            <PropertyRef Name="idTima" />
+          </Key>
+          <Property Name="idTima" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imeTima" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="naslovAplikacije" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="opisAplikacije" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idStatusa" Type="Int32" Nullable="false" />
+          <Property Name="bodovi" Type="Int32" />
+          <NavigationProperty Name="ClanTImas" Relationship="Self.FK_ClanTIma_Tim" FromRole="Tim" ToRole="ClanTIma" />
+          <NavigationProperty Name="StatusTima" Relationship="Self.FK_Tim_StatusTima" FromRole="Tim" ToRole="StatusTima" />
+          <NavigationProperty Name="Zahtjevs" Relationship="Self.FK_Zahtjev_Tim" FromRole="Tim" ToRole="Zahtjev" />
+        </EntityType>
+        <EntityType Name="Zahtjev">
+          <Key>
+            <PropertyRef Name="idKorisnickiRacun" />
+            <PropertyRef Name="idTima" />
+          </Key>
+          <Property Name="idKorisnickiRacun" Type="Int32" Nullable="false" />
+          <Property Name="idTima" Type="Int32" Nullable="false" />
+          <Property Name="iniciraKorisnik" Type="Boolean" Nullable="false" />
+          <Property Name="poruka" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KorisnickiRacun" Relationship="Self.FK_Zahtjev_KorisnickiRacun" FromRole="Zahtjev" ToRole="KorisnickiRacun" />
+          <NavigationProperty Name="Tim" Relationship="Self.FK_Zahtjev_Tim" FromRole="Zahtjev" ToRole="Tim" />
+        </EntityType>
+        <Association Name="FK_ClanTIma_KorisnickiRacun">
+          <End Role="KorisnickiRacun" Type="Self.KorisnickiRacun" Multiplicity="1" />
+          <End Role="ClanTIma" Type="Self.ClanTIma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KorisnickiRacun">
+              <PropertyRef Name="idKorisnickiRacun" />
+            </Principal>
+            <Dependent Role="ClanTIma">
+              <PropertyRef Name="idKorisnickiRacun" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClanTIma_Tim">
+          <End Role="Tim" Type="Self.Tim" Multiplicity="1" />
+          <End Role="ClanTIma" Type="Self.ClanTIma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tim">
+              <PropertyRef Name="idTima" />
+            </Principal>
+            <Dependent Role="ClanTIma">
+              <PropertyRef Name="idTima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zahtjev_KorisnickiRacun">
+          <End Role="KorisnickiRacun" Type="Self.KorisnickiRacun" Multiplicity="1" />
+          <End Role="Zahtjev" Type="Self.Zahtjev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KorisnickiRacun">
+              <PropertyRef Name="idKorisnickiRacun" />
+            </Principal>
+            <Dependent Role="Zahtjev">
+              <PropertyRef Name="idKorisnickiRacun" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tim_StatusTima">
+          <End Role="StatusTima" Type="Self.StatusTima" Multiplicity="1" />
+          <End Role="Tim" Type="Self.Tim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusTima">
+              <PropertyRef Name="idStatusa" />
+            </Principal>
+            <Dependent Role="Tim">
+              <PropertyRef Name="idStatusa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zahtjev_Tim">
+          <End Role="Tim" Type="Self.Tim" Multiplicity="1" />
+          <End Role="Zahtjev" Type="Self.Zahtjev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tim">
+              <PropertyRef Name="idTima" />
+            </Principal>
+            <Dependent Role="Zahtjev">
+              <PropertyRef Name="idTima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OObjektProjektEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClanTImas" EntityType="Self.ClanTIma" />
+          <EntitySet Name="KorisnickiRacuns" EntityType="Self.KorisnickiRacun" />
+          <EntitySet Name="StatusTimas" EntityType="Self.StatusTima" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tims" EntityType="Self.Tim" />
+          <EntitySet Name="Zahtjevs" EntityType="Self.Zahtjev" />
+          <AssociationSet Name="FK_ClanTIma_KorisnickiRacun" Association="Self.FK_ClanTIma_KorisnickiRacun">
+            <End Role="KorisnickiRacun" EntitySet="KorisnickiRacuns" />
+            <End Role="ClanTIma" EntitySet="ClanTImas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClanTIma_Tim" Association="Self.FK_ClanTIma_Tim">
+            <End Role="Tim" EntitySet="Tims" />
+            <End Role="ClanTIma" EntitySet="ClanTImas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zahtjev_KorisnickiRacun" Association="Self.FK_Zahtjev_KorisnickiRacun">
+            <End Role="KorisnickiRacun" EntitySet="KorisnickiRacuns" />
+            <End Role="Zahtjev" EntitySet="Zahtjevs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tim_StatusTima" Association="Self.FK_Tim_StatusTima">
+            <End Role="StatusTima" EntitySet="StatusTimas" />
+            <End Role="Tim" EntitySet="Tims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zahtjev_Tim" Association="Self.FK_Zahtjev_Tim">
+            <End Role="Tim" EntitySet="Tims" />
+            <End Role="Zahtjev" EntitySet="Zahtjevs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OObjektProjektDBModelStoreContainer" CdmEntityContainer="OObjektProjektEntities">
+          <EntitySetMapping Name="ClanTImas">
+            <EntityTypeMapping TypeName="OObjektProjektDBModel.ClanTIma">
+              <MappingFragment StoreEntitySet="ClanTIma">
+                <ScalarProperty Name="idKorisnickiRacun" ColumnName="idKorisnickiRacun" />
+                <ScalarProperty Name="idTima" ColumnName="idTima" />
+                <ScalarProperty Name="vodja" ColumnName="vodja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KorisnickiRacuns">
+            <EntityTypeMapping TypeName="OObjektProjektDBModel.KorisnickiRacun">
+              <MappingFragment StoreEntitySet="KorisnickiRacun">
+                <ScalarProperty Name="idKorisnickiRacun" ColumnName="idKorisnickiRacun" />
+                <ScalarProperty Name="korisnickoIme" ColumnName="korisnickoIme" />
+                <ScalarProperty Name="lozinka" ColumnName="lozinka" />
+                <ScalarProperty Name="imePrezime" ColumnName="imePrezime" />
+                <ScalarProperty Name="jmbag" ColumnName="jmbag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusTimas">
+            <EntityTypeMapping TypeName="OObjektProjektDBModel.StatusTima">
+              <MappingFragment StoreEntitySet="StatusTima">
+                <ScalarProperty Name="idStatusa" ColumnName="idStatusa" />
+                <ScalarProperty Name="stanje" ColumnName="stanje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="OObjektProjektDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tims">
+            <EntityTypeMapping TypeName="OObjektProjektDBModel.Tim">
+              <MappingFragment StoreEntitySet="Tim">
+                <ScalarProperty Name="idTima" ColumnName="idTima" />
+                <ScalarProperty Name="imeTima" ColumnName="imeTima" />
+                <ScalarProperty Name="naslovAplikacije" ColumnName="naslovAplikacije" />
+                <ScalarProperty Name="opisAplikacije" ColumnName="opisAplikacije" />
+                <ScalarProperty Name="idStatusa" ColumnName="idStatusa" />
+                <ScalarProperty Name="bodovi" ColumnName="bodovi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zahtjevs">
+            <EntityTypeMapping TypeName="OObjektProjektDBModel.Zahtjev">
+              <MappingFragment StoreEntitySet="Zahtjev">
+                <ScalarProperty Name="idKorisnickiRacun" ColumnName="idKorisnickiRacun" />
+                <ScalarProperty Name="idTima" ColumnName="idTima" />
+                <ScalarProperty Name="iniciraKorisnik" ColumnName="iniciraKorisnik" />
+                <ScalarProperty Name="poruka" ColumnName="poruka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
